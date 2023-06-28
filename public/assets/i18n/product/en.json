@@ -1,0 +1,13 @@
+{
+  "payinfiat":"pay in fiat",
+  "payinhbar":"pay in hbar",
+  "subscribe":"subscribe",
+  "nomore":"No more stock for this project",
+  "sorrysubscriptions":"Sorry subscriptions are temporarily unavailable",
+"ifyou":"If you haven't already, click the 'connect with Hashconnect' button to connect your wallet. You should receive your NFT in under 24h. If you don't, email us at contact@harmonia-eko.ooo",
+"quantity":"Quantity: ",
+"methodology":"Methodology: ",
+"availablestock":"Available stock: ",
+  "backtoproduct": "back to product"
+}
+

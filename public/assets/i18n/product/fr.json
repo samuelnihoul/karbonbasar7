@@ -1,0 +1,14 @@
+{
+  "payinfiat":"checkout fiat (EUR/USD)",
+  "payinhbar":"checkout HBAR",
+  "subscribe":"abonnement",
+  "nomore":"En rupture de stock",
+ "sorrysubscriptions":"Désolé les abonnements sont temporairement indisponibles.",
+ "ifyou":"Si vous ne l'avez pas déjà fait, connectez votre portefeuille en cliquant sur le bouton 'connexion avec Hashconnect'. Vous devriez recevoir votre NFT sous 24h.",
+"quantity":"Quantité : ",
+"availablestock":"Quantité disponible : ",
+"methodology":"Méthodologie : ",
+"avoidance":"évitement",
+"removal":"séquestration",
+  "backtoproduct":"retour au produit"
+}

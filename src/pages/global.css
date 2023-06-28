@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.white{
+  color:white;
+}
+.mainColor{
+  color:#ffd700;
+}
+.nfts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: gold;
+    display: inline-block;
+    padding: 10 0 10 0;
+}
+
+div {
+    background-color: black;
+    color: white;
+}
+
+html {
+    background-color: black;
+    color: white;
+}
+
+* {
+    font-family: 'cascadia';
+}
+@font-face{
+font-family:"cascadia";
+src:"/assets/fonts/cascadia.otf"
+}
+
+/*a ticker with fixed position*/
+.ticker {
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+/* body {
+    padding: 10 0 10 0;
+} */
+
+.span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker 15s linear infinite;
+}
+
+/* This text has to be above the ticker */
+
+
+@keyframes ticker {
+    0% {
+        transform: translate(0%, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin: 50;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.hero-sub {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
