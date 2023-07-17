@@ -3,7 +3,7 @@ import { HashConnect, HashConnectTypes, MessageTypes } from "hashconnect";
 import { useEffect, useState } from "react";
 import createTX from './hederaRaw'
 import './hashconnect.css'
-import {useTranslation} from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 interface IData {
   topic: string;
   pairingString: string;
@@ -13,7 +13,7 @@ interface IData {
 }
 const hashconnect: HashConnect = new HashConnect(true);
 export default function HashButton() {
-const {t}=useTranslation(['navbar'])
+  const { t } = useTranslation(['navbar'])
   const defaultMetadata: HashConnectTypes.WalletMetadata = { name: "", description: "", icon: "" }
   const [status, setStatus] = useState("disconnected");
 
@@ -37,6 +37,7 @@ const {t}=useTranslation(['navbar'])
     setUpEvents();
     if (!saveData.topic) {
       //first init, store the private key in localstorage
+
       let initData = await hashconnect.init(appMetadata);
       ssd(data => { data.privateKey = initData.privKey; return data });
 
@@ -96,7 +97,7 @@ const {t}=useTranslation(['navbar'])
 
       }
       await initHashconnect();
-       saveDataInLocalstorage();
+      saveDataInLocalstorage();
       spk(saveData.pairedAccounts[0] || 'guest')
     }
     init();
@@ -104,7 +105,7 @@ const {t}=useTranslation(['navbar'])
 
   return (
     <button
-    className='hashconnect'
+      className='hashconnect'
       onClick={async () => {
         await connectToExtension();
         saveDataInLocalstorage();
@@ -119,7 +120,7 @@ const {t}=useTranslation(['navbar'])
   );
 }
 export async function pay(price: number) {
-  const {t}=useTranslation(['navbar'])
+  const { t } = useTranslation(['navbar'])
   alert(t('pleasesendan'))
   let tx = await createTX(localStorage.getItem('pairedWallet'), price);
   //send the transaction

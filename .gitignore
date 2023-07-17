@@ -32,3 +32,6 @@ yarn-error.log*
 .env
 paypal.c/hypnotic-trees-328016-7e2feb8ea511.json
 paypal.c/addEnviromentVariables.go
+
+#sam
+dist

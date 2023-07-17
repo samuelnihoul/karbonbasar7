@@ -10,7 +10,9 @@ export default function home() {
     return (
         <>
             <h1 className="text-center text-3xl mt-[10vh] mb-[10vh]">KARBON BASAR</h1>
-            <p className="text-center text-xl">{t('cutecollectiblecarbon')}<br></br> ฅ՞•ﻌ•՞ฅ</p>
+            <p className="text-center text-xl">{t('cutecollectiblecarbon')}
+                <br />{t('andmore')}
+                <br></br> ฅ՞•ﻌ•՞ฅ</p>
             <NFTs></NFTs>
             <HowItWorks></HowItWorks>
         </>

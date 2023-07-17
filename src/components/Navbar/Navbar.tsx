@@ -17,7 +17,7 @@ import i18next from 'i18next'
 
 function ResponsiveAppBar() {
   const { i18n, t } = useTranslation(['navbar'])
-const routes=['home','offset','about']
+  const routes = ['home', 'emission reductions', 'about']
   React.useEffect(
     () => {
       if (
@@ -133,14 +133,14 @@ const routes=['home','offset','about']
             ))}<Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}></Box>
             <Hashpack  ></Hashpack>
             <Metamask ></Metamask>
-                <select
-                  value={localStorage.getItem("i18nextLng")}
-                  onChange={handleLanguageChange}
-                  className='pl-5 bg-black'
-                >
-                  <option value="en">🇺🇸</option>
-                  <option value="fr">🇫🇷</option>
-                </select>
+            <select
+              value={localStorage.getItem("i18nextLng")}
+              onChange={handleLanguageChange}
+              className='pl-5 bg-black'
+            >
+              <option value="en">🇺🇸</option>
+              <option value="fr">🇫🇷</option>
+            </select>
           </Box>
 
         </Toolbar>
