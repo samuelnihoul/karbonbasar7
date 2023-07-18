@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import createTX from './hederaRaw'
 import './hashconnect.css'
 import { useTranslation } from 'react-i18next'
+
 interface IData {
   topic: string;
   pairingString: string;
@@ -12,6 +13,7 @@ interface IData {
   pairedAccounts: string[];
 }
 const hashconnect: HashConnect = new HashConnect(true);
+
 export default function HashButton() {
   const { t } = useTranslation(['navbar'])
   const defaultMetadata: HashConnectTypes.WalletMetadata = { name: "", description: "", icon: "" }
@@ -23,13 +25,11 @@ export default function HashButton() {
     pairedWalletData: defaultMetadata,
     pairedAccounts: [],
   });
-  const [pk, spk] = useState('guest');
 
   const appMetadata: HashConnectTypes.AppMetadata = {
     name: "karbonbasar",
     description: "The NFT Carbon Offset Marketplace",
-    url: "https://karbonbasar.harmonia-eko.ooo",
-    icon: "https://karbonbasar.harmonia-eko.ooo/pure2.png"
+    icon: "https://karbonbasar.harmonia.eco/pure2.png"
   };
 
   async function initHashconnect() {
@@ -63,6 +63,7 @@ export default function HashButton() {
     }
     savedDataInLocalstorage();
   }
+
   function setUpEvents() {
     hashconnect.pairingEvent.on((data) => {
       setStatus("paired");
@@ -77,9 +78,11 @@ export default function HashButton() {
       savedDataInLocalstorage();
     });
   }
+
   async function connectToExtension() {
     hashconnect.connectToLocalWallet(savedData.pairingString);
   }
+
   function savedDataInLocalstorage() {
     let data = JSON.stringify(savedData);
     localStorage.setItem("hashconnectData", data);
@@ -92,28 +95,26 @@ export default function HashButton() {
       }
       await initHashconnect();
       savedDataInLocalstorage();
-      spk(savedData.pairedAccounts[0] || 'guest')
+      setStatus(savedData.pairedAccounts[0] || 'disconnected')
     }
     init();
   }
     , [])
-
   return (
     <button
       className='hashconnect'
       onClick={async () => {
         await connectToExtension();
         savedDataInLocalstorage();
-        setTimeout(() => spk(savedData.pairedAccounts[0] || 'pending'), 1)
-        setTimeout(() => spk(savedData.pairedAccounts[0] || 'pending'), 10000)
-        setTimeout(() => spk(savedData.pairedAccounts[0] || 'pending'), 20000)
-        setTimeout(() => spk(savedData.pairedAccounts[0] || 'timed out'), 30000)
+        setTimeout(() => setStatus(savedData.pairedAccounts[0] || 'pending'), 1)
+        setTimeout(() => setStatus(savedData.pairedAccounts[0] || 'timed out'), 30000)
       }}
     >
-      {pk != 'guest' ? '✅ ' + pk : t('connectwithhashpack')}
+      {status != 'disconnected' ? '✅ ' + status : t('connectwithhashpack')}
     </button>
   );
 }
+
 export async function pay(price: number) {
   const { t } = useTranslation(['navbar'])
   alert(t('pleasesendan'))
