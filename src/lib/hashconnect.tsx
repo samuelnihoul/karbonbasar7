@@ -18,6 +18,7 @@ export default function HashButton() {
   const { t } = useTranslation(['navbar'])
   const defaultMetadata: HashConnectTypes.WalletMetadata = { name: "", description: "", icon: "" }
   const [status, setStatus] = useState("disconnected");
+  const [isInit, setIsInit] = useState(false)
   const [savedData, setSavedData] = useState<IData>({
     topic: "",
     pairingString: "",
@@ -70,13 +71,12 @@ export default function HashButton() {
       localStorage.setItem('pairedWallet', data.accountIds[0]);
       localStorage.setItem('topic', data.topic);
       setSavedData(d => { d.pairedWalletData = data.metadata; return d });
-
       data.accountIds.forEach((id) => {
         setSavedData(d => { d.pairedAccounts.push(id); return d });
-
       });
       savedDataInLocalstorage();
     });
+    hashconnect.connectionStatusChange.once((e) => setIsInit(true))
   }
 
   async function connectToExtension() {
@@ -87,24 +87,26 @@ export default function HashButton() {
     let data = JSON.stringify(savedData);
     localStorage.setItem("hashconnectData", data);
   }
+
   useEffect(() => {
-    async function init() {
-      let foundData = localStorage.getItem("hashconnectData");
-      if (foundData) {
-        setSavedData(JSON.parse(foundData));
-      }
-      await initHashconnect();
-      savedDataInLocalstorage();
-      setStatus(savedData.pairedAccounts[0] || 'disconnected')
+    console.log('hello useeffecct')
+    let foundData = localStorage.getItem("hashconnectData");
+    if (foundData) {
+      setSavedData(JSON.parse(foundData));
     }
-    init();
+    if (!isInit) { initHashconnect() };
+    //not really true but this line is to bypass the double useEffect issue
+    setIsInit(true)
+    savedDataInLocalstorage();
+    setStatus(savedData.pairedAccounts[0] || 'disconnected')
   }
     , [])
+
   return (
     <button
       className='hashconnect'
-      onClick={async () => {
-        await connectToExtension();
+      onClick={() => {
+        connectToExtension();
         savedDataInLocalstorage();
         setTimeout(() => setStatus(savedData.pairedAccounts[0] || 'pending'), 1)
         setTimeout(() => setStatus(savedData.pairedAccounts[0] || 'timed out'), 30000)
