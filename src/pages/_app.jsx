@@ -35,7 +35,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/subscribe" element={<Subscribe />} />
-                <Route path="/offset" element={<Products />} />
+                <Route path="/reductions" element={<Products />} />
               </Routes>
             </PayPalScriptProvider>
             <Footer></Footer></div>

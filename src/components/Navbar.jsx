@@ -17,7 +17,7 @@ import i18next from 'i18next'
 
 function ResponsiveAppBar() {
   const { i18n, t } = useTranslation(['navbar'])
-  const routes = ['home', 'emission reductions', 'about']
+  const routes = ['home', 'reductions', 'about']
   React.useEffect(
     () => {
       if (
@@ -30,7 +30,7 @@ function ResponsiveAppBar() {
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value)
   }
-  const [anchorElNav, setAnchorElNav] = React.useState < null | HTMLElement > (null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
