@@ -10,8 +10,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar'
 import MenuItem from '@mui/material/MenuItem';
-import Metamask from '../lib/metamask'
-import Hashpack from '../lib/hashconnect'
+import Metamask from '../../lib/metamask'
+import Hashpack from '../../lib/hashconnect'
 import { useTranslation } from 'react-i18next'
 import i18next from 'i18next'
 
@@ -30,9 +30,9 @@ function ResponsiveAppBar() {
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value)
   }
-  const [anchorElNav, setAnchorElNav] = React.useState < null | HTMLElement > (null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 

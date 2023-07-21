@@ -34,10 +34,6 @@ export default function HashButton() {
   };
 
   async function initHashconnect() {
-    let foundData = localStorage.getItem("hashconnectData");
-    if (foundData) {
-      setSavedData(JSON.parse(foundData));
-    }
     //create the hashconnect instance
     setUpEvents();
     if (!savedData.topic) {
@@ -80,7 +76,6 @@ export default function HashButton() {
       });
       savedDataInLocalstorage();
     });
-    //@todo improve 
     hashconnect.connectionStatusChange.once((e) => setIsInit(true))
   }
 
@@ -93,11 +88,24 @@ export default function HashButton() {
     localStorage.setItem("hashconnectData", data);
   }
 
+  useEffect(() => {
+    console.log('hello useeffecct')
+    let foundData = localStorage.getItem("hashconnectData");
+    if (foundData) {
+      setSavedData(JSON.parse(foundData));
+    }
+    if (!isInit) { initHashconnect() };
+    //not really true but this line is to bypass the double useEffect issue
+    setIsInit(true)
+    savedDataInLocalstorage();
+    setStatus(savedData.pairedAccounts[0] || 'disconnected')
+  }
+    , [])
+
   return (
     <button
       className='hashconnect'
       onClick={() => {
-        if (!isInit) { initHashconnect() };
         connectToExtension();
         savedDataInLocalstorage();
         setTimeout(() => setStatus(savedData.pairedAccounts[0] || 'pending'), 1)
