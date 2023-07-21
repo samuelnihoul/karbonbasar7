@@ -1,5 +1,4 @@
 import React from 'react';
-import Products from './products'
 import HowItWorks from "../components/HowItWorks";
 import NFTs from "../components/NFTs";
 import { useTranslation } from 'react-i18next'
