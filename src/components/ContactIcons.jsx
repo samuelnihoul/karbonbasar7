@@ -61,10 +61,10 @@ function ContactIcon({
 
 
 const MOCKDATA = [
-  { title: 'Email', description: 'hello@mantine.dev', icon: IconAt },
-  { title: 'Phone', description: '+49 (800) 335 35 35', icon: IconPhone },
-  { title: 'Address', description: '844 Morris Park avenue', icon: IconMapPin },
-  { title: 'Working hours', description: '8 a.m. – 11 p.m.', icon: IconSun },
+  { title: 'Email', description: 'contact@harmonia.eco', icon: IconAt },
+  { title: 'Phone', description: '+33 782 949 579', icon: IconPhone },
+  { title: 'Address', description: '14 La Blaye - 22150 Ploeuc-l\'Hermitage', icon: IconMapPin },
+  { title: 'Working hours', description: '8 a.m. – 5 p.m.', icon: IconSun },
 ];
 
 export function ContactIconsList({ data = MOCKDATA, variant }) {

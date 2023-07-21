@@ -100,7 +100,7 @@ export default function ContactUs() {
 
           <Group mt="xl">{icons}</Group>
         </div>
-        <div className={classes.form}>
+        {/* <div className={classes.form}>
           <TextInput
             label="Email"
             placeholder="your@email.com"
@@ -125,7 +125,7 @@ export default function ContactUs() {
           <Group position="right" mt="md">
             <Button className={classes.control}>Send message</Button>
           </Group>
-        </div>
+        </div>*/}
       </SimpleGrid>
     </div>
   );

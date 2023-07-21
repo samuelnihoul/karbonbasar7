@@ -17,7 +17,7 @@ import i18next from 'i18next'
 
 function ResponsiveAppBar() {
   const { i18n, t } = useTranslation(['navbar'])
-  const routes = ['home', 'reductions', 'about']
+  const routes = ['home', 'reductions', 'about', 'corporate']
   React.useEffect(
     () => {
       if (
