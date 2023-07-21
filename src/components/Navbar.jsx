@@ -30,7 +30,7 @@ function ResponsiveAppBar() {
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value)
   }
-  const [anchorElNav, setAnchorElNav] = React.useState < null | HTMLElement > (null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
