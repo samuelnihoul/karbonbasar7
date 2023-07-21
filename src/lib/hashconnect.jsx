@@ -1,18 +1,25 @@
 import React from 'react'
-import { HashConnect, MessageTypes } from "hashconnect";
-import { useState } from "react";
+import { HashConnect, HashConnectTypes, MessageTypes } from "hashconnect";
+import { useEffect, useState } from "react";
 import createTX from './hederaRaw'
 import './hashconnect.css'
 import { useTranslation } from 'react-i18next'
 
-const hashconnect = new HashConnect(true);
+interface IData {
+  topic: string;
+  pairingString: string;
+  privateKey?: string;
+  pairedWalletData?: HashConnectTypes.WalletMetadata;
+  pairedAccounts: string[];
+}
+const hashconnect: HashConnect = new HashConnect(true);
 
 export default function HashButton() {
   const { t } = useTranslation(['navbar'])
-  const defaultMetadata = { name: "", description: "", icon: "" }
+  const defaultMetadata: HashConnectTypes.WalletMetadata = { name: "", description: "", icon: "" }
   const [status, setStatus] = useState("disconnected");
   const [isInit, setIsInit] = useState(false)
-  const [savedData, setSavedData] = useState({
+  const [savedData, setSavedData] = useState<IData>({
     topic: "",
     pairingString: "",
     privateKey: "",
@@ -20,7 +27,7 @@ export default function HashButton() {
     pairedAccounts: [],
   });
 
-  const appMetadata = {
+  const appMetadata: HashConnectTypes.AppMetadata = {
     name: "karbonbasar",
     description: "The NFT Carbon Offset Marketplace",
     icon: "https://karbonbasar.harmonia.eco/pure2.png"
@@ -102,12 +109,12 @@ export default function HashButton() {
   );
 }
 
-export async function pay(price) {
+export async function pay(price: number) {
   const { t } = useTranslation(['navbar'])
   alert(t('pleasesendan'))
   let tx = await createTX(localStorage.getItem('pairedWallet'), price);
   //send the transaction
-  const transaction = {
+  const transaction: MessageTypes.Transaction = {
     topic: localStorage.getItem('topic'),
     byteArray: tx,
     metadata: {

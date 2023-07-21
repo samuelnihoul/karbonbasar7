@@ -2,9 +2,9 @@
 import { Client, TransferTransaction, PrivateKey, Hbar } from '@hashgraph/sdk';
 const client = Client.forMainnet().setOperator(process.env.REACT_APP_NL3, process.env.REACT_APP_NL3P);
 
-export default async function creeateTX(accountID, amount) {
+export default async function creeateTX(accountID, amount: number) {
     //converts the USD amount to Hbar using the current price fetched from the reverse proxy
-    async function convertUSDToHbar(amount) {
+    async function convertUSDToHbar(amount: number) {
         let price = await fetch('https://harmonia-ekoutils-mhbcpntktq-ew.a.run.app/notify');
         let pri = await price.json();
         pri = pri['data']['HBAR'][0]['quote']['USD']['price']
