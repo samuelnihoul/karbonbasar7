@@ -7,6 +7,9 @@
 .mainColor{
   color:#ffd700;
 }
+.secondaryColor{
+    color:#db1a4d
+}
 .nfts {
     display: grid;
     grid-template-columns: 1fr 1fr;
