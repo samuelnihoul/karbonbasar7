@@ -29,7 +29,7 @@ export default function HashButton() {
 
   const appMetadata: HashConnectTypes.AppMetadata = {
     name: "karbonbasar",
-    description: "The NFT Carbon Offset Marketplace",
+    description: 'NFT Emission Reduction Marketplace',
     icon: "https://karbonbasar.harmonia.eco/pure2.png"
   };
 
