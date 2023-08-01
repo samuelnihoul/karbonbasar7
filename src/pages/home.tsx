@@ -1,7 +1,7 @@
 import React from 'react';
 import Products from './products'
 import HowItWorks from "../components/HowItWorks";
-import NFTs from "../components/NFTs";
+import NFTs from "../components/NFTs.jsx";
 import { useTranslation } from 'react-i18next'
 export default function home() {
     const { t } = useTranslation(["home"])
