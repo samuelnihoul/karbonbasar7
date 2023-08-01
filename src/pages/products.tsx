@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
-import Product from '../components/Product';
+import Product from '../components/Product.jsx';
 import { db } from '../lib/firebase'
 import { collection, getDocs, DocumentData } from 'firebase/firestore'
 import Counter from '../components/Counter.jsx';

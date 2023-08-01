@@ -1,25 +1,25 @@
 [
     {
         "id": 1,
-        "value": 369,
+        "value": 384,
         "title": "usdforclimate",
         "decimals": 0
     },
     {
         "id": 2,
-        "value": 34.5,
+        "value": 35.5,
         "title": "tonnesoffset",
         "decimals": 1
     },
     {
         "id": 3,
-        "value": 2,
+        "value": 40,
         "title": "nftsissued",
         "decimals": 0
     },
     {
         "id": 4,
-        "value": 5,
+        "value": 4,
         "title": "projectslisted",
         "decimals": 0
     }
