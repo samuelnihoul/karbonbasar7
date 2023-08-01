@@ -1,7 +1,6 @@
 {
   "name": "karbonbasar",
   "version": "7.0.0",
-  "entry":"index.jsx",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
