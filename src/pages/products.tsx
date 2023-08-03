@@ -28,7 +28,7 @@ const Products = () => {
     <>
       <section>
 
-        <h2 className='center text-xl mt-[2.5vh] mb-[2.5vh]'>{t('ourprojects')}</h2><Grid container spacing={4}>
+        <h2 className='text-center text-2xl mt-[2.5vh] mb-[2.5vh]'>{t('ourprojects')}</h2><Grid container spacing={4}>
           {products.map((product) => (
             <Grid key={product.name} item xs={12} sm={6} md={4} lg={3}>
               <Product product={product} />
