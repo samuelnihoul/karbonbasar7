@@ -7,8 +7,7 @@ export default function HowItWorks() {
             <h2 className='mb-[2.5vh] mt-[2.5vh] text-2xl'>{t('howitworks')}</h2>
             <p className='p-[5vw] pb-[50px]'>{t('newcollectiblenft')}</p>
             <img src='/example2.png' className='m-auto'></img>
-            <p className='z-10 mt-[10vh]'>{t('dontknowhow')}<a href='https://footprint.wwf.org.uk/' target='_blank' className='z-10'>&nbsp;{t('thisfreeand')}</a>&nbsp;{t('hasyourback')}
-            < a href='https://imgur.com/a/ZsaAhKh' >&nbsp;{t('yearlyaverage')}</a ></p >
+            <button className='chip white p-3'>Try it now</button>
         </section >
     )
 }

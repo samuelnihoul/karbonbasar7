@@ -12,13 +12,13 @@ const CounterOne = () => {
         if (isVisible) setViewed(true);
     };
 
-    return (<div className="column"><h2 className="text-xl mt-[2.5vh] mb-[3vh]">{t('lovestorymetrics')}</h2>
+    return (<div className="column"><h2 className="text-center text-xl mt-[2.5vh] mb-[3vh]">{t('lovestorymetrics')}</h2>
 
-        <div className={"container"  }>
-            <div className="row">
+        <div className="container text-center">
+            <div className="text-center align-center justify-center flex">
                 {countersData.map((counter, i) => (
                     <div
-                        className="col-md-3 counter text-center col-sm-6"
+                        className="col-md-3 flex justify-center counter text-center col-sm-6"
                         key={counter.id}
                         data-aos-delay={`${i}00`}
                         data-aos={"fade-up"}
@@ -27,7 +27,7 @@ const CounterOne = () => {
                     >
                         <span
                             className={
-                                "text-[4vh] count font-700 "  
+                                "text-[4vh] count font-700 "
                             }
                         >
                             <VisibilitySensor onChange={viewChangeHandler} delayedCall>
