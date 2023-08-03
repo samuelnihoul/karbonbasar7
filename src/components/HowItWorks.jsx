@@ -7,7 +7,7 @@ export default function HowItWorks() {
             <h2 className='mb-[2.5vh] mt-[2.5vh] text-2xl'>{t('howitworks')}</h2>
             <p className='p-[5vw] pb-[50px]'>{t('newcollectiblenft')}</p>
             <img src='/example2.png' className='m-auto'></img>
-            <button className='chip white p-3'>Try it now</button>
+            <a href='/reductions' className='p-12'>Try it now</a>
         </section >
     )
 }
