@@ -47,7 +47,7 @@ export default function HashButton() {
       className='hashconnect'
       onClick={
         () => {
-          alert('This is your pairing key. Use it in your Hashpack app to pair your wallet:' + localStorage.getItem('topic'))
+          alert('This is your pairing key. Click the Earth icon in Hashpack and paste there to pair. Key: ' + localStorage.getItem('topic'))
         }
       }
     >
