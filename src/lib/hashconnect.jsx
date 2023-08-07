@@ -22,19 +22,32 @@ export default function HashButton() {
     }
     );
   }
+  useEffect(
+    () => {
+      let ignore = false;
+      async function init() {
+        await hashconnect.init(appMetadata)
+        setUpEvents()
+        let state = await hashconnect.connect()
+        if (!ignore) {
 
+          let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
+          localStorage.setItem('topic', pairingString)
+        }
+      }
+      init()
+      return () => {
+        ignore = true
+      }
+    }, []
+  )
 
   return (
     <button
       className='hashconnect'
       onClick={
-        async () => {
-          setUpEvents()
-          let initData = await hashconnect.init(appMetadata)
-          let state = await hashconnect.connect()
-          let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
-          alert(pairingString)
-          localStorage.setItem('topic', pairingString)
+        () => {
+          alert(localStorage.getItem('topic'))
         }
       }
     >
@@ -51,7 +64,7 @@ export async function pay(price) {
     topic: localStorage.getItem('topic'),
     byteArray: tx,
     metadata: {
-      accountToSign: localStorage.getItem('pairedWallet'),
+      accountToSign: localStorage.getItem('paired wallet'),
       returnTransaction: false
     }
   }
