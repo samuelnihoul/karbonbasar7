@@ -17,7 +17,7 @@ export default function HashButton() {
   function setUpEvents() {
     hashconnect.pairingEvent.on((data) => {
       //does not take into account more accounts being paired !!!
-      alert(`paired ${data.accountIds[0]}`)
+      alert(`Welcome ${data.accountIds[0]}`)
       localStorage.setItem('paired wallet', data.accountIds[0])
     }
     );
@@ -47,7 +47,7 @@ export default function HashButton() {
       className='hashconnect'
       onClick={
         () => {
-          alert(localStorage.getItem('topic'))
+          alert('This is your pairing key. Use it in your Hashpack app to pair your wallet:' + localStorage.getItem('topic'))
         }
       }
     >
@@ -57,7 +57,7 @@ export default function HashButton() {
 }
 
 export async function pay(price) {
-  alert('this hasn')
+  alert('This feature has not been extensively tested. If you run into any issue, email us at contact@harmonia.eco')
   let tx = await createTX(localStorage.getItem('paired wallet'), price)
   //send the transaction
   const transaction = {
