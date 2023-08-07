@@ -99,7 +99,6 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
               <MenuItem><Hashpack ></Hashpack></MenuItem>
-              <MenuItem><Metamask ></Metamask></MenuItem>
             </Menu>
           </Box>
           <Avatar src='/pure2.png' sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -132,7 +131,6 @@ function ResponsiveAppBar() {
               </Button>
             ))}<Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}></Box>
             <Hashpack  ></Hashpack>
-            <Metamask ></Metamask>
             <select
               value={localStorage.getItem("i18nextLng")}
               onChange={handleLanguageChange}

@@ -16,7 +16,9 @@ export default function HashButton() {
   const { t } = useTranslation(['navbar'])
   function setUpEvents() {
     hashconnect.pairingEvent.on((data) => {
-      alert(`paired ${data}`)
+      //does not take into account more accounts being paired !!!
+      alert(`paired ${data.accountIds[0]}`)
+      localStorage.setItem('paired wallet', data.accountIds[0])
     }
     );
   }
@@ -25,14 +27,16 @@ export default function HashButton() {
   return (
     <button
       className='hashconnect'
-      onClick={async () => {
-        setUpEvents()
-        let initData = await hashconnect.init(appMetadata)
-        let state = await hashconnect.connect();
-        let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
-        alert(pairingString)
-        hashconnect.connectToLocalWallet();
-      }}
+      onClick={
+        async () => {
+          setUpEvents()
+          let initData = await hashconnect.init(appMetadata)
+          let state = await hashconnect.connect()
+          let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
+          alert(pairingString)
+          localStorage.setItem('topic', pairingString)
+        }
+      }
     >
       {t('connectwithhashpack')}
     </button>
@@ -40,9 +44,8 @@ export default function HashButton() {
 }
 
 export async function pay(price) {
-  const { t } = useTranslation(['navbar'])
-  alert(t('pleasesendan'))
-  let tx = await createTX(localStorage.getItem('pairedWallet'), price);
+  alert('this hasn')
+  let tx = await createTX(localStorage.getItem('paired wallet'), price)
   //send the transaction
   const transaction = {
     topic: localStorage.getItem('topic'),
@@ -55,6 +58,6 @@ export async function pay(price) {
   let response = await hashconnect.sendTransaction(localStorage.getItem('topic'), transaction)
   alert(JSON.stringify(response));
   fetch('https://harmonia-ekoutils-mhbcpntktq-ew.a.run.app/notify', {})
-  alert(t('dontforget'))
+  alert('dontforget')
 }
 
