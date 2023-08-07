@@ -14,11 +14,13 @@ const appMetadata = {
 
 export default function HashButton() {
   const { t } = useTranslation(['navbar'])
+  const [user, setUser] = useState(t('connectwithhashpack'))
   function setUpEvents() {
     hashconnect.pairingEvent.on((data) => {
       //does not take into account more accounts being paired !!!
       alert(`Welcome ${data.accountIds[0]}`)
       localStorage.setItem('paired wallet', data.accountIds[0])
+      setUser(data.accountIds[0])
     }
     );
   }
@@ -52,7 +54,7 @@ export default function HashButton() {
         }
       }
     >
-      {t('connectwithhashpack')}
+      {user}
     </button>
   );
 }
