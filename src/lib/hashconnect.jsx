@@ -49,8 +49,11 @@ export default function HashButton() {
       className='hashconnect'
       onClick={
         async () => {
-          await navigator.clipboard.writeText(localStorage.getItem('topic'))
-          alert('Here is your pairing key. Click the Earth icon in Hashpack and paste there to pair. We copied it to your clipboard for you. Key: ' + localStorage.getItem('topic'))
+          if (user.charAt(1) == '.') { return }
+          else {
+            await navigator.clipboard.writeText(localStorage.getItem('topic'))
+            alert('Here is your pairing key. Click the Earth icon in Hashpack and paste there to pair. We copied it to your clipboard for you. Key: ' + localStorage.getItem('topic'))
+          }
         }
       }
     >

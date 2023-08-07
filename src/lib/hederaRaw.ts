@@ -5,9 +5,10 @@ const client = Client.forMainnet().setOperator(process.env.REACT_APP_NL3, proces
 export default async function creeateTX(accountID, amount: number) {
     //converts the USD amount to Hbar using the current price fetched from the reverse proxy
     async function convertUSDToHbar(amount: number) {
-        let price = await fetch('https://harmonia-ekoutils-mhbcpntktq-ew.a.run.app/notify');
-        let pri = await price.json();
-        pri = pri['data']['HBAR'][0]['quote']['USD']['price']
+        // let price = await fetch('https://harmonia-ekoutils-mhbcpntktq-ew.a.run.app/notify');
+        // let pri = await price.json();
+        // pri = pri['data']['HBAR'][0]['quote']['USD']['price']
+        let pri = 0.05546
         return amount / pri;
     }
     amount = await convertUSDToHbar(amount);
