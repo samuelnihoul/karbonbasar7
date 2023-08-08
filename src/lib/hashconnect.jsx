@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashConnect, HashConnectTypes, MessageTypes } from "hashconnect";
 import { useEffect, useState } from "react";
-import createTX from './hederaRaw'
+import createTX from './hedera'
 import { useTranslation } from 'react-i18next'
 
 const hashconnect = new HashConnect(true);
