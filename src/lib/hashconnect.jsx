@@ -14,7 +14,9 @@ const appMetadata = {
 
 export default function HashButton() {
   const { t } = useTranslation(['navbar'])
-  const [user, setUser] = useState(t('connectwithhashpack'))
+  const tr1 = t('connectwithhashpack')
+  const [user, setUser] = useState(tr1)
+  let savedUser = localStorage.getItem('paired wallet')
   function setUpEvents() {
     hashconnect.pairingEvent.on((data) => {
       //does not take into account more accounts being paired !!!
@@ -25,22 +27,15 @@ export default function HashButton() {
     );
   }
   useEffect(
-    () => {
-      let ignore = false;
-      async function init() {
-        await hashconnect.init(appMetadata)
-        setUpEvents()
+    async () => {
+      setUpEvents()
+      await hashconnect.init(appMetadata)
+      if (!savedUser) {
         let state = await hashconnect.connect()
-        if (!ignore) {
-
-          let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
-          localStorage.setItem('topic', pairingString)
-        }
+        let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
+        localStorage.setItem('topic', pairingString)
       }
-      init()
-      return () => {
-        ignore = true
-      }
+      else setUser(savedUser)
     }, []
   )
 
@@ -49,7 +44,7 @@ export default function HashButton() {
       className='hashconnect'
       onClick={
         async () => {
-          if (user.charAt(1) == '.') { return }
+          if (user.charAt(1) == '.') { setUser(tr1) }
           else {
             await navigator.clipboard.writeText(localStorage.getItem('topic'))
             alert('Here is your pairing key. Click the Earth icon in Hashpack and paste there to pair. We copied it to your clipboard for you. Key: ' + localStorage.getItem('topic'))
