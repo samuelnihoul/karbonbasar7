@@ -4,7 +4,7 @@ import { pay } from '../lib/hashconnect';
 import { useTranslation } from 'react-i18next'
 import Checkout from '../pages/checkout'
 const Product = ({ product }) => {
-  const {i18n, t } = useTranslation([ 'product'])
+  const { i18n, t } = useTranslation(['product'])
   const [quantity, setQuantity] = useState(1);
   const [isCheckout, setIsCheckout] = useState(false);
   const cardRef = React.useRef(null);
@@ -15,7 +15,7 @@ const Product = ({ product }) => {
         <CardContent>
           <div >
             <p className="text-[2rem]">
-               {i18n.language=='fr'?product.namefr?product.namefr:product.name:product.name}
+              {i18n.language == 'fr' ? product.namefr ? product.namefr : product.name : product.name}
             </p>
             <span style={{ padding: '10px', fontSize: '14px' }}>
               {product.price}${"/0.1 CO2e tonne"}
@@ -25,9 +25,9 @@ const Product = ({ product }) => {
 
           </div>
 
-          {i18n.language=='fr'?product.descriptionfr:product.description}<br />
+          {i18n.language == 'fr' ? product.descriptionfr : product.description}<br />
           <br />
-          {product.tags.map((chip: string) => {
+          {product.tags.map((chip) => {
             return <Chip label={t(chip)} color={'primary'}></Chip>
           })}<br /><br />
           <span >
@@ -35,7 +35,7 @@ const Product = ({ product }) => {
             <span className='mainColor'>{t('methodology')}</span>{product.methodology}</span>
         </CardContent>
         <CardActions disableSpacing >
-          <Chip label={t('payinhbar')} color='secondary' onClick={() => { if (product.stock) { alert(t('ifyou')); pay(product.tinybars * quantity) } else alert(t('nomore')) }}></Chip>
+          <Chip label={t('payinhbar')} color='secondary' onClick={() => { if (product.stock) { alert(t('ifyou')); pay(product.price * quantity) } else alert(t('nomore')) }}></Chip>
           <Chip label={t("subscribe")} color='secondary' onClick={() => alert(t('sorrysubscriptions'))} />
           <Chip label={t("payinfiat")} color='secondary' onClick={() => {
             if (product.stock !== '0') {
