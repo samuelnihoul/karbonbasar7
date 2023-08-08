@@ -20,7 +20,6 @@ export default function HashButton() {
   function setUpEvents() {
     hashconnect.pairingEvent.on((data) => {
       //does not take into account more accounts being paired !!!
-      alert(`Welcome ${data.accountIds[0]}`)
       localStorage.setItem('paired wallet', data.accountIds[0])
       setUser(data.accountIds[0])
     }
@@ -41,13 +40,12 @@ export default function HashButton() {
 
   return (
     <button
-      className='hashconnect'
       onClick={
         async () => {
           if (user.charAt(1) == '.') { setUser(tr1) }
           else {
             await navigator.clipboard.writeText(localStorage.getItem('topic'))
-            alert('Here is your pairing key. Click the Earth icon in Hashpack and paste there to pair. We copied it to your clipboard for you. Key: ' + localStorage.getItem('topic'))
+            alert('Copied your pairing key to the clipboard. To finish pairing, go to Hashpack, click the Earth icon and paste it.')
           }
         }
       }
@@ -57,9 +55,9 @@ export default function HashButton() {
   );
 }
 
-export async function pay(price) {
+export async function pay(amount) {
   alert('This feature has not been extensively tested. If you run into any issue, email us at contact@harmonia.eco')
-  let tx = await createTX(localStorage.getItem('paired wallet'), price)
+  let tx = await createTX(localStorage.getItem('paired wallet'), amount)
   //send the transaction
   const transaction = {
     topic: localStorage.getItem('topic'),
