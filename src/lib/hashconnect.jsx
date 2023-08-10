@@ -1,7 +1,6 @@
 import React from 'react'
 import { HashConnect, HashConnectTypes, MessageTypes } from "hashconnect";
 import { useEffect, useState } from "react";
-import createTX from './hedera'
 import { useTranslation } from 'react-i18next'
 
 const hashconnect = new HashConnect(true);
@@ -57,7 +56,8 @@ export default function HashButton() {
 
 export async function pay(amount) {
   alert('This feature has not been extensively tested. If you run into any issue, email us at contact@harmonia.eco')
-  let tx = await createTX(localStorage.getItem('paired wallet'), amount)
+  // let tx = await createTX(localStorage.getItem('paired wallet'), amount)
+  let tx = await fetch(`http://localhost:8080?account=${localStorage.getItem('paired wallet')[0]}&amount=${amount}`)
   //send the transaction
   const transaction = {
     topic: localStorage.getItem('topic'),
