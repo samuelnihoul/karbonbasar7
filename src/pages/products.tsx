@@ -12,9 +12,7 @@ const Products = () => {
   //fetch from cloud firestore
   async function fetchProducts() {
     const snapshot = await getDocs(collection(db, 'products'))
-    console.log(snapshot)
     snapshot.forEach(doc => {
-      console.log(doc.data())
       setProducts(products => [...products, doc.data()])
     }
     )

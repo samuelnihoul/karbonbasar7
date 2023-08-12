@@ -25,16 +25,19 @@ export default function HashButton() {
     );
   }
   useEffect(
-    async () => {
-      setUpEvents()
-      await hashconnect.init(appMetadata)
-      if (!savedUser) {
-        let state = await hashconnect.connect()
-        let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
-        localStorage.setItem('topic', pairingString)
+    () => {
+      async function f() {
+        setUpEvents()
+        await hashconnect.init(appMetadata)
+        if (!savedUser) {
+          let state = await hashconnect.connect()
+          let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
+        }
+        else setUser(savedUser)
       }
-      else setUser(savedUser)
-    }, []
+      f()
+    }
+    , []
   )
 
   return (
@@ -43,7 +46,7 @@ export default function HashButton() {
         async () => {
           if (user.charAt(1) == '.') { setUser(tr1) }
           else {
-            await navigator.clipboard.writeText(localStorage.getItem('topic'))
+            await navigator.clipboard.writeText(localStorage.getItem('hashconnectData'))
             alert('Copied your pairing key to the clipboard. To finish pairing, go to Hashpack, click the Earth icon and paste it.')
           }
         }
