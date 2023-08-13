@@ -28,7 +28,7 @@ const Product = ({ product }) => {
           {i18n.language == 'fr' ? product.descriptionfr : product.description}<br />
           <br />
           {product.tags.map((chip) => {
-            return <Chip label={t(chip)} color={'primary'}></Chip>
+            return <Chip label={t(chip)} key={chip} color={'primary'}></Chip>
           })}<br /><br />
           <span >
             <span className="mainColor">{t('availablestock')}</span> {product.stock}<br></br>
