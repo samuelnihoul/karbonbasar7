@@ -1,4 +1,5 @@
 import React from 'react';
+import Counter from '../components/Counter'
 import Products from './products'
 import HowItWorks from "../components/HowItWorks";
 import NFTs from "../components/NFTs.jsx";
@@ -15,6 +16,7 @@ export default function home() {
                 <br></br> ฅ՞•ﻌ•՞ฅ</p>
             <NFTs></NFTs>
             <HowItWorks></HowItWorks>
+            <Counter></Counter>
         </>
     )
 }

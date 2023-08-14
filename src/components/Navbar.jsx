@@ -10,7 +10,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar'
 import MenuItem from '@mui/material/MenuItem';
-import Metamask from '../lib/metamask'
 import Hashpack from '../lib/hashconnect'
 import { useTranslation } from 'react-i18next'
 import i18next from 'i18next'

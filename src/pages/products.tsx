@@ -12,10 +12,8 @@ const Products = () => {
   //fetch from cloud firestore
   async function fetchProducts() {
     const snapshot = await getDocs(collection(db, 'products'))
-    console.log(snapshot)
     snapshot.forEach(doc => {
-      console.log(doc.data())
-      setProducts(products => [...products, doc.data()])
+      setProducts(products => [...products, { id: doc.id, data: doc.data() }])
     }
     )
   }
@@ -30,8 +28,8 @@ const Products = () => {
 
         <h2 className='text-center text-2xl mt-[2.5vh] mb-[2.5vh]'>{t('ourprojects')}</h2><Grid container spacing={4}>
           {products.map((product) => (
-            <Grid key={product.name} item xs={12} sm={6} md={4} lg={3}>
-              <Product product={product} />
+            <Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
+              <Product product={product.data} />
             </Grid>
           ))}
         </Grid>

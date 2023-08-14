@@ -1,50 +1,49 @@
 import React from 'react'
-import { HashConnect, HashConnectTypes, MessageTypes } from "hashconnect";
+import { HashConnect } from "hashconnect";
 import { useEffect, useState } from "react";
-import createTX from './hedera'
 import { useTranslation } from 'react-i18next'
 
-const hashconnect = new HashConnect(true);
-const appMetadata = {
-  name: "Karbon Basar",
-  description: 'NFT Emission Reduction Marketplace',
-  icon: "https://karbonbasar.harmonia.eco/pure2.png",
-  url: "karbonbasar.harmonia.eco"
-};
-
 export default function HashButton() {
+  let hashconnect = new HashConnect(true);
+  const appMetadata = {
+    name: "Karbon Basar",
+    description: 'NFT Emission Reduction Marketplace',
+    icon: "https://karbonbasar.harmonia.eco/pure2.png",
+    url: "karbonbasar.harmonia.eco"
+  };
   const { t } = useTranslation(['navbar'])
   const tr1 = t('connectwithhashpack')
   const [user, setUser] = useState(tr1)
-  let savedUser = localStorage.getItem('paired wallet')
+  const [savedData, setSavedData] = useState(localStorage.getItem('hashconnectData'))
   function setUpEvents() {
-    hashconnect.pairingEvent.on((data) => {
-      //does not take into account more accounts being paired !!!
-      localStorage.setItem('paired wallet', data.accountIds[0])
-      setUser(data.accountIds[0])
+    hashconnect.pairingEvent.on(() => {
+      setUser(savedData.pairedAccounts[0])
     }
     );
   }
   useEffect(
-    async () => {
-      setUpEvents()
-      await hashconnect.init(appMetadata)
-      if (!savedUser) {
-        let state = await hashconnect.connect()
-        let pairingString = hashconnect.generatePairingString(state, 'mainnet', true)
-        localStorage.setItem('topic', pairingString)
+    () => {
+      async function f() {
+        setUpEvents()
+        await hashconnect.init(appMetadata)
+        if (user == tr1) {
+          await hashconnect.connect()
+          setSavedData(localStorage.getItem('hashconnectData'))
+        }
+        else { setUser(savedData.pairedAccounts[0]) }
       }
-      else setUser(savedUser)
-    }, []
+      f()
+    }
+    , []
   )
 
   return (
     <button
       onClick={
         async () => {
-          if (user.charAt(1) == '.') { setUser(tr1) }
+          if (user != tr1) { setUser(tr1); return }
           else {
-            await navigator.clipboard.writeText(localStorage.getItem('topic'))
+            await navigator.clipboard.writeText(savedData.pairingString)
             alert('Copied your pairing key to the clipboard. To finish pairing, go to Hashpack, click the Earth icon and paste it.')
           }
         }
@@ -56,18 +55,23 @@ export default function HashButton() {
 }
 
 export async function pay(amount) {
+  let hashconnect = new HashConnect(true)
+
   alert('This feature has not been extensively tested. If you run into any issue, email us at contact@harmonia.eco')
-  let tx = await createTX(localStorage.getItem('paired wallet'), amount)
+  // let tx = await createTX(localStorage.getItem('paired wallet'), amount)
+  let tx = await fetch(`http://localhost:8080/createTransaction?account=${localStorage.getItem('hashconnectData')?.pairedAccounts[0]}&amount=${amount}`)
+  tx = tx.arrayBuffer()
   //send the transaction
+  tx = new Uint8Array(tx)
   const transaction = {
-    topic: localStorage.getItem('topic'),
+    topic: localStorage.getItem('hashconnectData')?.topic,
     byteArray: tx,
     metadata: {
-      accountToSign: localStorage.getItem('paired wallet'),
+      accountToSign: localStorage.getItem('hashconnectData')?.pairedAccounts[0],
       returnTransaction: false
     }
   }
-  let response = await hashconnect.sendTransaction(localStorage.getItem('topic'), transaction)
+  let response = await hashconnect.sendTransaction(localStorage.getItem('hashconnectData')?.pairedAccounts[0], transaction)
   alert(JSON.stringify(response));
   fetch('https://harmonia-ekoutils-mhbcpntktq-ew.a.run.app/notify', {})
   alert('dontforget')
