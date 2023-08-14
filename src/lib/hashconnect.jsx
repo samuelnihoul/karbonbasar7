@@ -3,13 +3,12 @@ import { HashConnect } from "hashconnect";
 import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next'
 
+const hashconnect = new HashConnect(true);
 export default function HashButton() {
-  let hashconnect = new HashConnect(true);
   const appMetadata = {
     name: "Karbon Basar",
     description: 'NFT Emission Reduction Marketplace',
     icon: "https://karbonbasar.harmonia.eco/pure2.png",
-    url: "karbonbasar.harmonia.eco"
   };
   const { t } = useTranslation(['navbar'])
   const tr1 = t('connectwithhashpack')
@@ -20,19 +19,23 @@ export default function HashButton() {
       setUser(savedData.pairedAccounts[0])
     }
     );
+    hashconnect.connectionStatusChangeEvent.on(
+      () => {
+        async function f() {
+          await hashconnect.init(appMetadata, "mainnet", false)
+          if (user == tr1) {
+            await hashconnect.connect()
+            setSavedData(localStorage.getItem('hashconnectData'))
+          }
+          else { setUser(savedData.pairedAccounts[0]) }
+        }
+        f()
+      }
+    )
   }
   useEffect(
     () => {
-      async function f() {
-        setUpEvents()
-        await hashconnect.init(appMetadata)
-        if (user == tr1) {
-          await hashconnect.connect()
-          setSavedData(localStorage.getItem('hashconnectData'))
-        }
-        else { setUser(savedData.pairedAccounts[0]) }
-      }
-      f()
+      setUpEvents()
     }
     , []
   )
