@@ -32,7 +32,7 @@ function App() {
                     </div>
                 )}
 
-                {!availableExtension && <p>Wallet is not installed in your browser</p>}
+                <p>Connection with Hashpack</p>
 
                 <p>Paring key : {pairingString?.substring(0, 15)}...</p>
 
@@ -40,9 +40,9 @@ function App() {
                     <button onClick={handleCopy}>Copy Paring String</button>
                 </p>
 
-                <button onClick={handleClick}>{pairingData ? "Disconnect" : "Connect"}</button>
+                {availableExtension && < button onClick={handleClick}>{pairingData ? "Disconnect" : "Connect with Plugin"}</button>}
             </header>
-        </div>
+        </div >
     );
 }
 

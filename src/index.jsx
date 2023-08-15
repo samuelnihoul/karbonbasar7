@@ -5,5 +5,6 @@ import { HashConnectAPIProvider } from './lib/hashconnect.tsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <HashConnectAPIProvider>
-        <App /></HashConnectAPIProvider>
-); u
+        <App />
+    </HashConnectAPIProvider>
+); 
