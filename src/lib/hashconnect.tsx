@@ -62,7 +62,7 @@ export const HashConnectAPIProvider = ({ children, metaData, network, debug }: P
                 if (debug) console.log("===Local data not found.=====");
 
                 //first init and store the private for later
-                let initData = await hashConnect.init(metaData ?? APP_CONFIG);
+                let initData = await hashConnect.init(metaData ?? APP_CONFIG, 'mainnet');
                 const privateKey = initData.privKey;
 
                 //then connect, storing the new topic for later

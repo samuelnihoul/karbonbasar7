@@ -1,5 +1,5 @@
 import React from "react";
-import { useHashConnect } from "../lib/hashconnect2";
+import { useHashConnect } from "../lib/hashconnect";
 
 function App() {
     const { connectToExtension, disconnect, pairingData, availableExtension, network, pairingString } = useHashConnect();
