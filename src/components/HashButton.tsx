@@ -41,7 +41,7 @@ export const HashConnectClient = () => {
     return null;
 };
 
-export const HashConnectConnectButton = () => {
+export default function HashConnectConnectButton() {
     const {
         isConnected,
         accountIds: connectedAccountIds,
