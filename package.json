@@ -15,7 +15,7 @@
     "@paypal/react-paypal-js": "^7.8.1",
     "@tabler/icons-react": "^2.27.0",
     "firebase": "^9.8.4",
-    "hashconnect": "^0.1.10",
+    "hashconnect": "^0.2.10",
     "i18next": "^22.4.13",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",

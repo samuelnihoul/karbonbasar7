@@ -2096,7 +2096,7 @@
     long "^4.0.0"
     protobufjs "^7.1.2"
 
-"@hashgraph/sdk@^2.13.1", "@hashgraph/sdk@^2.14.2":
+"@hashgraph/sdk@^2.13.1", "@hashgraph/sdk@^2.19.2":
   version "2.31.0"
   resolved "https://registry.npmjs.org/@hashgraph/sdk/-/sdk-2.31.0.tgz"
   integrity sha512-dUqgH6c8g705RaXzjfQ9ZOaY3wXlXdzIrLu4ngf5FEB2K/MVdqmj2u5Vc8bIlUDTQ6YVd0QDB3ERiJBugCgGxA==
@@ -6474,21 +6474,22 @@ hash.js@1.1.7, hash.js@^1.0.0, hash.js@^1.0.3, hash.js@^1.1.7:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
-hashconnect@^0.1.10:
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/hashconnect/-/hashconnect-0.1.10.tgz#f66e941c2e72c88c8770664c57fac91b8bb4a6c9"
-  integrity sha512-w4lxJLDZk9cJ+x9OXEVZjt4JRY38tVOKkzMrBfyJoWw+Dyx+6GUSgW4k3XUFzqk8p0/ZKlf3ficu8/nPL1FSwQ==
+hashconnect@^0.2.10:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/hashconnect/-/hashconnect-0.2.4.tgz#b15d2c8d2808a6770dd00dd372ac43faa6d4e089"
+  integrity sha512-LPz+gu/8rQT/OEn1Gdcrqb0Mgbbw6cKjRH12Q0AkjJPAE8ks0pTpOi6Rdp6TZ6gzO7xgm8POSAABa13ITD9bLw==
   dependencies:
-    "@hashgraph/sdk" "^2.14.2"
+    "@hashgraph/sdk" "^2.19.2"
     buffer "^6.0.3"
     crypto-es "^1.2.7"
     crypto-js "^4.1.1"
     i "^0.3.7"
+    isomorphic-ws "^5.0.0"
     protons "^2.0.3"
     simple-crypto-js "^3.0.1"
     ts-typed-events "3.0.0"
     uuid "^8.3.2"
-    ws "^8.5.0"
+    ws "^8.8.1"
 
 he@^1.2.0:
   version "1.2.0"
@@ -7035,6 +7036,11 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
+
+isomorphic-ws@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/isomorphic-ws/-/isomorphic-ws-5.0.0.tgz#e5529148912ecb9b451b46ed44d53dae1ce04bbf"
+  integrity sha512-muId7Zzn9ywDsyXgTIafTry2sV3nySZeUDe6YedVd1Hvuuep5AsIlqK+XefWpYTyJG5e503F2xIuT2lcU6rCSw==
 
 istanbul-lib-coverage@^3.0.0, istanbul-lib-coverage@^3.2.0:
   version "3.2.0"
@@ -11739,7 +11745,7 @@ ws@^7.4.6:
   resolved "https://registry.npmjs.org/ws/-/ws-7.5.9.tgz"
   integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==
 
-ws@^8.13.0, ws@^8.5.0:
+ws@^8.13.0, ws@^8.8.1:
   version "8.13.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.13.0.tgz#9a9fb92f93cf41512a0735c8f4dd09b8a1211cd0"
   integrity sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==
