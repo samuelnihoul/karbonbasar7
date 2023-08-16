@@ -78,6 +78,7 @@ function ResponsiveAppBar() {
               {renderMenuItems()}
               <MenuItem>
                 <Hashpack />
+                <ConnectionInfo />
               </MenuItem>
             </Menu>
           </Box>
@@ -100,6 +101,7 @@ function ResponsiveAppBar() {
             {renderDesktopButtons()}
             <Box sx={{ flexGrow: 2 }} />
             <Hashpack />
+            <ConnectionInfo />
             <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='pl-5 bg-black'>
               <option value="en">🇺🇸</option>
               <option value="fr">🇫🇷</option>
