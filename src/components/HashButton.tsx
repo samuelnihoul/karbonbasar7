@@ -26,13 +26,13 @@ function App() {
             <header className="App-header">
                 {pairingData?.accountIds && pairingData.accountIds?.length > 0 && (
                     <div>
-                        {/* <h3>Connected Accounts Details:</h3> */}
+                        <h3>Connected Accounts Details:</h3>
                         <p>Network:{network}</p>
                         <p>Accounts: [{pairingData?.accountIds && pairingData?.accountIds.reduce(conCatAccounts)}]</p>
                     </div>
                 )}
 
-                {!pairingData && <p>Connection with Hashpack</p>}
+                <p>Connection with Hashpack</p>
 
                 <p>Paring key : {pairingString?.substring(0, 15)}...</p>
 

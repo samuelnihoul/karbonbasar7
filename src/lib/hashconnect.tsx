@@ -146,12 +146,12 @@ export const HashConnectAPIProvider = ({ children, metaData, network, debug }: P
 
 const defaultProps: Partial<PropsType> = {
     metaData: {
-        name: "Karbon Basar",
-        description: "Karbon Basar is your emission reduction NFT marketplace.",
-        icon: "https://karbonbasar.harmonia.eco/pure2.png",
+        name: "dApp Example",
+        description: "An example hedera dApp",
+        icon: "https://absolute.url/to/icon.png",
     },
-    network: "mainnet",
-    debug: true,
+    network: "testnet",
+    debug: false,
 };
 
 HashConnectAPIProvider.defaultProps = defaultProps;
