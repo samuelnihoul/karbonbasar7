@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardActions, Typography, Chip } from '@mui/material';
-import { sendTransaction } from '../lib/hashconnect';
+import { sendTransaction } from './HashButton';
 import { useTranslation } from 'react-i18next'
 import Checkout from '../pages/checkout'
 const Product = ({ product }) => {
