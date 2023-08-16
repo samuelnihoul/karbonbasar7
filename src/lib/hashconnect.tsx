@@ -63,13 +63,13 @@ export const HashConnectAPIProvider = ({ children, metaData, network, debug }: P
 
                 //first init and store the private for later
                 let initData = await hashConnect.init(metaData ?? APP_CONFIG, 'mainnet');
-                const privateKey = initData.privKey;
+                const privateKey = initData.encryptionKey;
 
                 //then connect, storing the new topic for later
                 const state = await hashConnect.connect();
                 hashConnect.findLocalWallets();
 
-                const topic = state.topic;
+                const topic = state
 
                 //generate a pairing string, which you can display and generate a QR code from
                 const pairingString = hashConnect.generatePairingString(state, network, debug ?? false);
@@ -83,7 +83,7 @@ export const HashConnectAPIProvider = ({ children, metaData, network, debug }: P
             } else {
                 if (debug) console.log("====Local data found====", localData);
                 //use loaded data for initialization + connection
-                await hashConnect.init(metaData ?? APP_CONFIG, localData?.privKey);
+                await hashConnect.init(metaData ?? APP_CONFIG, 'mainnet')
                 await hashConnect.connect(localData?.pairingData.topic, localData?.pairingData.metadata ?? metaData);
             }
         } catch (error) {
@@ -142,7 +142,7 @@ export const HashConnectAPIProvider = ({ children, metaData, network, debug }: P
         hashConnect.foundExtensionEvent.on(foundExtensionEventHandler);
         hashConnect.pairingEvent.on(pairingEventHandler);
         hashConnect.acknowledgeMessageEvent.on(acknowledgeEventHandler);
-        hashConnect.connectionStatusChange.on(onStatusChange);
+        hashConnect.connectionStatusChangeEvent.on(onStatusChange);
         return () => {
             hashConnect.foundExtensionEvent.off(foundExtensionEventHandler);
             hashConnect.pairingEvent.off(pairingEventHandler);
@@ -174,7 +174,7 @@ export const useHashConnect = () => {
 
     const connectToExtension = async () => {
         //this will automatically pop up a pairing request in the HashPack extension
-        hashConnect.connectToLocalWallet(pairingString!);
+        hashConnect.connectToLocalWallet();
     };
 
     const sendTransaction = async (trans: Uint8Array, acctToSign: string, return_trans: boolean = false, hideNfts: boolean = false) => {
