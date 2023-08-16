@@ -55,7 +55,7 @@ export const HashConnectAPIProvider = ({ children, metaData, network, debug }: P
     const localData = cookies.hashconnectData as any as SavedPairingData;
 
     //initialise the thing
-    const initializeHashConnect = useCallback(async () => {
+    const initializeHashConnect = async () => {
         localStorage.removeItem("hashconnectData");
         try {
             if (!localData) {
@@ -89,17 +89,15 @@ export const HashConnectAPIProvider = ({ children, metaData, network, debug }: P
         } catch (error) {
             console.log(error);
         }
-    }, [debug, localData, metaData, network]);
+    }
 
-    const foundExtensionEventHandler = useCallback(
+    const foundExtensionEventHandler =
         (data: HashConnectTypes.WalletMetadata) => {
             if (debug) console.log("====foundExtensionEvent====", data);
             setState((exState) => ({ ...exState, availableExtension: data }));
-        },
-        [debug]
-    );
+        }
 
-    const saveDataInLocalStorage = useCallback(
+    const saveDataInLocalStorage =
         (data: MessageTypes.ApprovePairing) => {
             if (debug) console.info("===============Saving to localstorage::=============");
             const dataToSave: SavedPairingData = {
@@ -108,26 +106,19 @@ export const HashConnectAPIProvider = ({ children, metaData, network, debug }: P
                 pairingData: stateData.pairingData!,
             };
             setCookie("hashconnectData", dataToSave, { path: "/" });
-        },
-        [debug]
-    );
-
-    const pairingEventHandler = useCallback(
+        }
+    const pairingEventHandler =
         (data: MessageTypes.ApprovePairing) => {
             if (debug) console.log("===Wallet connected=====", data);
             setState((exState) => ({ ...exState, pairingData: data }));
             saveDataInLocalStorage(data);
-        },
-        [debug, saveDataInLocalStorage]
-    );
+        }
 
-    const acknowledgeEventHandler = useCallback(
+    const acknowledgeEventHandler =
         (data: MessageTypes.Acknowledge) => {
             if (debug) console.log("====::acknowledgeData::====", data);
             setState((iniData) => ({ ...iniData, acknowledgeData: data }));
-        },
-        [debug]
-    );
+        }
 
     const onStatusChange = (state: HashConnectConnectionState) => {
         console.log("hashconnect state change event", state);
