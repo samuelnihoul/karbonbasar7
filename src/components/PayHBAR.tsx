@@ -1,4 +1,24 @@
-export default function a() {
+import { Hbar, TransferTransaction } from "@hashgraph/sdk";
+import {
+    Stack,
+    Typography,
+    Button,
+    Select,
+    MenuItem,
+    TextField,
+} from "@mui/material";
+import { getSigner } from "../lib/hashconnect";
+import { AppStore } from "../store";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+export default function PayHBAR() {
+    const { accountIds: connectedAccountIds, isConnected } = useSelector(
+        (state: AppStore) => state.hashconnect
+    );
+
+    const [fromAccountId, setFromAccountId] = useState("");
+    const [toAccountId, setToAccountId] = useState("");
+
     return (
         <Stack maxWidth="400px" spacing={1} pt={8}>
             <Typography variant="h3">Transfer 1 HBAR</Typography>
