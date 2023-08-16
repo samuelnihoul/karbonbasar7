@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardActions, Typography, Chip } from '@mui/material';
-import { sendTransaction } from '../lib/hashconnect';
 import { useTranslation } from 'react-i18next'
+import { useHashConnect } from '../lib/hashconnect';
 import Checkout from '../pages/checkout'
 const Product = ({ product }) => {
+  const { sendTransaction } = useHashConnect()
   const { i18n, t } = useTranslation(['product'])
   const [quantity, setQuantity] = useState(1);
   const [isCheckout, setIsCheckout] = useState(false);
   const cardRef = React.useRef(null);
+  async function payInHBAR(amount) {
+    await fetch('http://localhost:8080/sendTransaction')
+  }
   return (
     <Card ref={cardRef} style={{ padding: "10 10 10 10" }}>{
       !isCheckout ? <>
@@ -15,7 +19,7 @@ const Product = ({ product }) => {
         <CardContent>
           <div >
             <p className="text-[2rem]">
-              {i18n.language == 'fr' ? product.namefr ? product.namefr : product.name : product.name}
+              {i18n.language == 'fr' ? product.namefr : product.name}
             </p>
             <span style={{ padding: '10px', fontSize: '14px' }}>
               {product.price}${"/0.1 CO2e tonne"}
