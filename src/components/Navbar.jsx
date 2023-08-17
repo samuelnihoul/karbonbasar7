@@ -53,6 +53,7 @@ export default function ResponsiveAppBar() {
     <AppBar position="static" color='transparent'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+
           {/* Desktop view */}
           <Avatar src='/pure2.png' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography variant="h6" component="a" href="/" sx={{
@@ -95,7 +96,7 @@ export default function ResponsiveAppBar() {
             KB
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {renderDesktopButtons()}
             <Box sx={{ flexGrow: 2 }} />
             <Hashpack />
