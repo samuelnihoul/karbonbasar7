@@ -11,7 +11,7 @@ import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-export default function PayHBAR() {
+export default function PayHBAR(props: { quantity: number, price: number }) {
     const { accountIds: connectedAccountIds, isConnected } = useSelector(
         (state: AppStore) => state.hashconnect
     );
@@ -21,7 +21,7 @@ export default function PayHBAR() {
 
     return (
         <Stack maxWidth="400px" spacing={1} pt={8}>
-            <Typography variant="h3">Transfer 1 HBAR</Typography>
+            <Typography variant="h3">Buy for {props.price * props.quantity} HBAR</Typography>
             <Typography>From Account ID:</Typography>
             <Select
                 color={"blurple" as any}
@@ -49,7 +49,7 @@ export default function PayHBAR() {
                 ))}
             </Select>
 
-            <Typography>To Account ID:</Typography>
+            <Typography>Your confirmation email:</Typography>
             <TextField
                 color={"blurple" as any}
                 variant="standard"
@@ -57,7 +57,7 @@ export default function PayHBAR() {
                 onChange={(e) => {
                     setToAccountId(e.target.value);
                 }}
-                placeholder="Select To Account ID"
+                placeholder="example@example.com"
             />
             <Button
                 variant="contained"
@@ -65,7 +65,8 @@ export default function PayHBAR() {
                 onClick={async () => {
                     const transferTransaction = new TransferTransaction()
                         .addHbarTransfer(fromAccountId, new Hbar(-1))
-                        .addHbarTransfer(toAccountId, new Hbar(1));
+                        .addHbarTransfer(toAccountId, new Hbar(1))
+                        .setTransactionMemo(toAccountId)
                     const signer = await getSigner(fromAccountId);
                     const frozenTransaction =
                         await transferTransaction.freezeWithSigner(signer);

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Card, CardContent, CardActions, Chip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import Checkout from '../pages/checkout';
+import PayHBAR from './PayHBAR';
 
 const Product = ({ product }) => {
   const { i18n, t } = useTranslation(['product']);
@@ -24,7 +25,7 @@ const Product = ({ product }) => {
 
           <CardContent>
             <p className="text-[2rem]">{productName}</p>
-            <span className="p-10 text-sm">{product.price}$"/0.1 CO2e tonne"</span>
+            <span className="p-10 text-m">${product.price}/0.1 CO2e tonne</span>
 
             <div className="my-4">
               <span className="mainColor">{t('quantity')}</span>
@@ -53,6 +54,7 @@ const Product = ({ product }) => {
 
           <CardActions disableSpacing>
             {/*... similar adjustments to the Chip components */}
+            <PayHBAR quantity={quantity} price={product.price} />
           </CardActions>
         </>
       ) : (
