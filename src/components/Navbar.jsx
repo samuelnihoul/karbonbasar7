@@ -6,20 +6,12 @@ import {
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-
 import Hashpack from './HashButton';
-import { ConnectionInfo } from './ConnectionInfo'; // Note: You're importing this but not using it.
+import { ConnectionInfo } from './ConnectionInfo';
 
-function ResponsiveAppBar() {
+export default function ResponsiveAppBar() {
   const { i18n, t } = useTranslation(['navbar']);
   const routes = ['home', 'reductions', 'about', 'corporate'];
-
-  React.useEffect(() => {
-    const lang = localStorage.getItem("i18nextLng");
-    if (lang && lang.length > 2) {
-      i18next.changeLanguage("en");
-    }
-  }, []);
 
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -51,6 +43,12 @@ function ResponsiveAppBar() {
       </Button>
     ));
 
+  React.useEffect(() => {
+    const lang = localStorage.getItem("i18nextLng");
+    if (lang && lang.length > 2) {
+      i18next.changeLanguage("en");
+    }
+  }, []);
   return (
     <AppBar position="static" color='transparent'>
       <Container maxWidth="xl">
@@ -113,4 +111,3 @@ function ResponsiveAppBar() {
   );
 }
 
-export default ResponsiveAppBar;

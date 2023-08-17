@@ -1,4 +1,4 @@
-import { Hbar, TransferTransaction } from "@hashgraph/sdk";
+import { Hbar, TransferTransaction, TokenAssociateTransaction } from "@hashgraph/sdk";
 import {
     Box,
     Stack,
@@ -22,15 +22,15 @@ export default function PayHBAR({ quantity, price }: Props) {
     const { accountIds: connectedAccountIds, isConnected } = useSelector(
         (state: AppStore) => state.hashconnect
     );
-
     const [fromAccountId, setFromAccountId] = useState("");
     const [toAccountId, setToAccountId] = useState("");
     const [snackbarMessage, setSnackbarMessage] = useState("")
+    const [name, setName] = useState("")
     const amount = Math.floor(quantity * price * 1000 / 0.063) / 1000
     return (
         <Stack maxWidth="400px" spacing={1} pt={8}>
             <Typography variant="h3">Buy for {amount} HBAR</Typography>
-            <Typography>From Account ID:</Typography>
+            <Typography>What account do you want to use? *</Typography>
             <Select
                 color={"blurple" as any}
                 variant="standard"
@@ -48,7 +48,7 @@ export default function PayHBAR({ quantity, price }: Props) {
                             },
                         }
                 }
-                renderValue={(value) => (value ? value : "Select From Account ID")}
+                renderValue={(value) => (value ? value : "0.0.111111")}
             >
                 {connectedAccountIds.map((accountId) => (
                     <MenuItem key={accountId} value={accountId}>
@@ -57,7 +57,7 @@ export default function PayHBAR({ quantity, price }: Props) {
                 ))}
             </Select>
 
-            <Typography>Your confirmation email:</Typography>
+            <Typography>What is your email address?</Typography>
             <TextField
                 color={"blurple" as any}
                 variant="standard"
@@ -65,8 +65,39 @@ export default function PayHBAR({ quantity, price }: Props) {
                 onChange={(e) => {
                     setToAccountId(e.target.value);
                 }}
-                placeholder="example@example.com"
+                placeholder="EarthAngel@x.eco"
             />
+            <Typography>How do you want to name your NFT?</Typography>
+            <TextField
+                color={"blurple" as any}
+                variant="standard"
+                value={name}
+                onChange={(e) => {
+                    setName(e.target.value);
+                }}
+                placeholder="An Earth Angel, to the planet"
+            />
+            <Button
+                variant="contained"
+                color={"blurple" as any}
+                onClick={
+                    async () => {
+                        const associateTransaction = new TokenAssociateTransaction()
+                            .setTokenIds(['0.0.3276256']).setAccountId(fromAccountId)
+                        setSnackbarMessage("Approve in your wallet.")
+                        setSnackbarOpen(true)
+                        const signer = await getSigner(fromAccountId);
+                        const frozenTransaction =
+                            await associateTransaction.freezeWithSigner(signer);
+                        await frozenTransaction.executeWithSigner(signer);
+                        setSnackbarMessage("Success!")
+                        setSnackbarOpen(false)
+                        setSnackbarOpen(true)
+                    }
+                }
+            >
+                1. Associate the NFT
+            </Button>
             <Button
                 variant="contained"
                 color={"blurple" as any}
@@ -74,19 +105,21 @@ export default function PayHBAR({ quantity, price }: Props) {
                     const transferTransaction = new TransferTransaction()
                         .addHbarTransfer(fromAccountId, new Hbar(-amount))
                         .addHbarTransfer('0.0.1082962', new Hbar(amount))
-                        .setTransactionMemo(toAccountId)
+                        .setTransactionMemo(toAccountId + ',' + 'test')
                     setSnackbarMessage("Approve in your wallet.")
                     setSnackbarOpen(true)
                     const signer = await getSigner(fromAccountId);
                     const frozenTransaction =
                         await transferTransaction.freezeWithSigner(signer);
                     await frozenTransaction.executeWithSigner(signer);
-                    setSnackbarMessage("Success!")
+                    setSnackbarMessage("Success! Allow 24h to receive your order and confirmation emails.")
+                    setSnackbarOpen(false)
                     setSnackbarOpen(true)
                 }}
             >
-                Send
-            </Button><Snackbar
+                2. Pay
+            </Button>
+            <Snackbar
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
                 open={snackbarOpen}
                 autoHideDuration={5000}
@@ -101,7 +134,6 @@ export default function PayHBAR({ quantity, price }: Props) {
                         p: 2,
                         borderRadius: 1,
                     }}
-
                 >
                     {snackbarMessage}
                 </Box>

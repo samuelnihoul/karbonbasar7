@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Checkout from '../pages/checkout';
 import PayHBAR from './PayHBAR';
 
-const Product = ({ product }) => {
+export default function Product({ product }) {
   const { i18n, t } = useTranslation(['product']);
   const [quantity, setQuantity] = useState(1);
   const [isCheckout, setIsCheckout] = useState(false);
@@ -72,4 +72,3 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
