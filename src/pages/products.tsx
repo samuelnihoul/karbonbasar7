@@ -11,17 +11,20 @@ const Products = () => {
   const [products, setProducts] = useState<DocumentData[]>([])
   //fetch from cloud firestore
   async function fetchProducts() {
-    const snapshot = await getDocs(collection(db, 'products'))
-    snapshot.forEach(doc => {
-      setProducts(products => [...products, { id: doc.id, data: doc.data() }])
+    if (products.length == 0) {
+      const snapshot = await getDocs(collection(db, 'products'))
+      snapshot.forEach(doc => {
+        setProducts(products => [...products, { id: doc.id, data: doc.data() }])
+      }
+      )
     }
-    )
   }
-  useEffect(() => {
-    fetchProducts();
-
-
-  }, [])
+  useEffect(
+    () => {
+      fetchProducts();
+    },
+    []
+  )
   return (
     <>
       <section>

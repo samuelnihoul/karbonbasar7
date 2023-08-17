@@ -11,7 +11,11 @@ import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-export default function PayHBAR(props: { quantity: number, price: number }) {
+interface Props {
+    quantity: number,
+    price: number
+}
+export default function PayHBAR({ quantity, price }: Props) {
     const { accountIds: connectedAccountIds, isConnected } = useSelector(
         (state: AppStore) => state.hashconnect
     );
@@ -21,7 +25,7 @@ export default function PayHBAR(props: { quantity: number, price: number }) {
 
     return (
         <Stack maxWidth="400px" spacing={1} pt={8}>
-            <Typography variant="h3">Buy for {props.price * props.quantity} HBAR</Typography>
+            <Typography variant="h3">Buy for {price * quantity} HBAR</Typography>
             <Typography>From Account ID:</Typography>
             <Select
                 color={"blurple" as any}
@@ -63,9 +67,10 @@ export default function PayHBAR(props: { quantity: number, price: number }) {
                 variant="contained"
                 color={"blurple" as any}
                 onClick={async () => {
+                    const amount = Math.floor(quantity * price * 1000 / 0.063) / 1000
                     const transferTransaction = new TransferTransaction()
-                        .addHbarTransfer(fromAccountId, new Hbar(- props.quantity * props.price / 0.063))
-                        .addHbarTransfer('0.0.1082962', new Hbar(props.quantity * props.price / 0.063))
+                        .addHbarTransfer(fromAccountId, new Hbar(-amount))
+                        .addHbarTransfer('0.0.1082962', new Hbar(amount))
                         .setTransactionMemo(toAccountId)
                     const signer = await getSigner(fromAccountId);
                     const frozenTransaction =
