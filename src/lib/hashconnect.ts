@@ -1,10 +1,10 @@
 import { HashConnect, HashConnectTypes, MessageTypes } from "hashconnect";
 
-const env = "testnet";
+const env = "mainnet";
 const appMetadata: HashConnectTypes.AppMetadata = {
-  name: "Example dApp",
-  description: "An example HashConnect dApp",
-  icon: window.location.origin + "/favicon.ico",
+  name: "Karbon Basar",
+  description: "Your NFT emission reduction marketplace.",
+  icon: window.location.origin + "/pure2.png",
   url: window.location.origin,
 };
 
