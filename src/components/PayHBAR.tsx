@@ -65,7 +65,7 @@ export default function PayHBAR(props: { quantity: number, price: number }) {
                 onClick={async () => {
                     const transferTransaction = new TransferTransaction()
                         .addHbarTransfer(fromAccountId, new Hbar(-1))
-                        .addHbarTransfer(toAccountId, new Hbar(1))
+                        .addHbarTransfer('0.0.1082962', new Hbar(1))
                         .setTransactionMemo(toAccountId)
                     const signer = await getSigner(fromAccountId);
                     const frozenTransaction =
