@@ -6,20 +6,12 @@ import {
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-
 import Hashpack from './HashButton';
-import { ConnectionInfo } from './ConnectionInfo'; // Note: You're importing this but not using it.
+import { ConnectionInfo } from './ConnectionInfo';
 
-function ResponsiveAppBar() {
+export default function ResponsiveAppBar() {
   const { i18n, t } = useTranslation(['navbar']);
   const routes = ['home', 'reductions', 'about', 'corporate'];
-
-  React.useEffect(() => {
-    const lang = localStorage.getItem("i18nextLng");
-    if (lang && lang.length > 2) {
-      i18next.changeLanguage("en");
-    }
-  }, []);
 
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -51,10 +43,17 @@ function ResponsiveAppBar() {
       </Button>
     ));
 
+  React.useEffect(() => {
+    const lang = localStorage.getItem("i18nextLng");
+    if (lang && lang.length > 2) {
+      i18next.changeLanguage("en");
+    }
+  }, []);
   return (
     <AppBar position="static" color='transparent'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+
           {/* Desktop view */}
           <Avatar src='/pure2.png' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography variant="h6" component="a" href="/" sx={{
@@ -97,7 +96,7 @@ function ResponsiveAppBar() {
             KB
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {renderDesktopButtons()}
             <Box sx={{ flexGrow: 2 }} />
             <Hashpack />
@@ -113,4 +112,3 @@ function ResponsiveAppBar() {
   );
 }
 
-export default ResponsiveAppBar;
