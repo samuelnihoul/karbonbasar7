@@ -7,7 +7,7 @@ import { store } from './store'
 import { Buffer } from 'buffer'
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from './theme'
-import { Analytics } from '@vercel/analytics'
+import { Analytics } from '@next/analytics'
 // window.Buffer = window.Buffer || Buffer
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
