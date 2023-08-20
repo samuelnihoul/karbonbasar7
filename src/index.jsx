@@ -7,20 +7,16 @@ import { store } from './store'
 import { Buffer } from 'buffer'
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from './theme'
-import { Analytics } from '@next/analytics'
 // window.Buffer = window.Buffer || Buffer
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <>
-        <Analytics />
-        <React.StrictMode>
-            <Provider store={store}>
-                <HashConnectClient />
-                <ThemeProvider>
-                    <CssBaseline />
-                    <App />
-                </ThemeProvider>
-            </Provider>
-        </React.StrictMode>
-    </>
+    <React.StrictMode>
+        <Provider store={store}>
+            <HashConnectClient />
+            <ThemeProvider>
+                <CssBaseline />
+                <App />
+            </ThemeProvider>
+        </Provider>
+    </React.StrictMode>
 ); 
