@@ -16,8 +16,9 @@ import { useSelector } from "react-redux";
 interface Props {
     quantity: number,
     price: number
+    productName: string
 }
-export default function PayHBAR({ quantity, price }: Props) {
+export default function PayHBAR({ quantity, price, productName }: Props) {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
     const { accountIds: connectedAccountIds, isConnected } = useSelector(
         (state: AppStore) => state.hashconnect
@@ -105,7 +106,7 @@ export default function PayHBAR({ quantity, price }: Props) {
                     const transferTransaction = new TransferTransaction()
                         .addHbarTransfer(fromAccountId, new Hbar(-amount))
                         .addHbarTransfer('0.0.1082962', new Hbar(amount))
-                        .setTransactionMemo(toAccountId + ',' + 'test')
+                        .setTransactionMemo(toAccountId + ',' + name + productName)
                     setSnackbarMessage("Approve in your wallet.")
                     setSnackbarOpen(true)
                     const signer = await getSigner(fromAccountId);

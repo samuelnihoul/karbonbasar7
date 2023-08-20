@@ -51,7 +51,7 @@ export default function Product({ product }) {
 
       <CardActions disableSpacing>
         {/*... similar adjustments to the Chip components */}
-        <PayHBAR quantity={quantity} price={product.price} />
+        <PayHBAR quantity={quantity} price={product.price} productName={product.name} />
       </CardActions>
     </Card>
   );
