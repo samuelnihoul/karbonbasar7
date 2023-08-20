@@ -13,6 +13,7 @@ import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { HashConnectTypes } from 'hashconnect'
 interface Props {
     quantity: number,
     price: number
@@ -86,7 +87,7 @@ export default function PayHBAR({ quantity, price }: Props) {
                             .setTokenIds(['0.0.3276256']).setAccountId(fromAccountId)
                         setSnackbarMessage("Approve in your wallet.")
                         setSnackbarOpen(true)
-                        const signer = await getSigner(fromAccountId);
+                        const signer = await getSigner(fromAccountId) as HashConnectTypes.HashConnectSigner;
                         const frozenTransaction =
                             await associateTransaction.freezeWithSigner(signer);
                         await frozenTransaction.executeWithSigner(signer);

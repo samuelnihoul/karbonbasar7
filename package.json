@@ -16,7 +16,6 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@tabler/icons-react": "^2.27.0",
     "@types/react-dom": "^18.2.7",
-    "@vercel/analytics": "^1.0.2",
     "firebase": "^9.8.4",
     "hashconnect": "^0.2.4",
     "i18next": "^22.4.13",
