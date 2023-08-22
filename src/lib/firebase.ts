@@ -13,6 +13,6 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-await analytics(app)
+getAnalytics(app)
 
-export { db };
+export default db;
