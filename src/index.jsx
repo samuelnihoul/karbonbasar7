@@ -7,13 +7,10 @@ import { store } from './store'
 import { Buffer } from 'buffer'
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from './theme'
-import Analytics from '@vercel/analytics'
 // window.Buffer = window.Buffer || Buffer
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    // <>
     <React.StrictMode>
-        // <Analytics />
         <Provider store={store}>
             <HashConnectClient />
             <ThemeProvider>
@@ -22,5 +19,4 @@ root.render(
             </ThemeProvider>
         </Provider>
     </React.StrictMode>
-    // </>
 ); 

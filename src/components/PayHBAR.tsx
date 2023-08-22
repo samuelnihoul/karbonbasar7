@@ -87,7 +87,7 @@ export default function PayHBAR({ quantity, price }: Props) {
                             .setTokenIds(['0.0.3276256']).setAccountId(fromAccountId)
                         setSnackbarMessage("Approve in your wallet.")
                         setSnackbarOpen(true)
-                        const signer = await getSigner(fromAccountId) as HashConnectTypes.HashConnectSigner;
+                        const signer = await getSigner(fromAccountId)
                         const frozenTransaction =
                             await associateTransaction.freezeWithSigner(signer);
                         await frozenTransaction.executeWithSigner(signer);
