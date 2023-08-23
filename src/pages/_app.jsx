@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Subscribe from './subscribe'
 import Navbar from "../components/Navbar";
-import Products from './products'
+import Products from './reductions'
 import './global.css'
 import Terms from './terms'
 import Privacy from './privacy'

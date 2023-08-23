@@ -2,7 +2,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from 'firebase/firestore'
-
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE,
   authDomain: "hypnotic-trees-328016.firebaseapp.com",
@@ -13,6 +12,6 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+getAnalytics(app)
 
-
-export { db };
+export default db;
