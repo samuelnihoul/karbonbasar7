@@ -55,7 +55,7 @@ export default function ResponsiveAppBar() {
         <Toolbar disableGutters>
 
           {/* Desktop view */}
-          <Avatar src='/pure2.png' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography variant="h6" component="a" href="/" sx={{
             mr: 2,
             display: { xs: 'none', md: 'flex' },

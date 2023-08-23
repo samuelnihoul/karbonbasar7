@@ -17,11 +17,12 @@ const Products = () => {
       )
     }
   }
+
   useEffect(
     () => {
-      fetchProducts();
-    },
-    []
+      fetchProducts()
+    }
+    , []
   )
   return (
     <>
@@ -36,8 +37,8 @@ const Products = () => {
         <Counter />
       </section>
     </>
-  );
-};
+  )
+}
 
 export default Products;
 
