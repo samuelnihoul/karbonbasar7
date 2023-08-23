@@ -13,7 +13,6 @@ import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { HashConnectTypes } from 'hashconnect'
 interface Props {
     quantity: number,
     price: number
