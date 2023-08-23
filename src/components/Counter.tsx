@@ -26,26 +26,32 @@ export default () => {
             <h2 className="text-center text-xl mt-[2.5vh] mb-[3vh]">{t('lovestorymetrics')}</h2>
             <div className="text-center">
                 <div className="text-center align-center justify-center flex">{
-                    <div
-                        key={data[0]}
-                        data-aos-delay={`${data[0]}00`}
-                        data-aos={"fade-up"}
-                        data-aos-duration={1000}
-                        data-aos-easing={"ease-in-sine"}
-                    >
-                        <span
-                            className={
-                                "mr-4 text-[4vh] font-700 "
-                            }
-                        >
-                            <VisibilitySensor onChange={viewChangeHandler} delayedCall>
-                                <CountUp decimals={0} end={viewed ? data[0] : 0} />
-                            </VisibilitySensor>
-                        </span>
-                        <span className="mr-12" >
-                            {data[0]}
-                        </span>
-                    </div>}
+                    Object.keys(data).map(
+                        (key: string, index: number) => {
+                            return (
+                                <div
+                                    key={index}
+                                    data-aos-delay={`${data[key]}00`}
+                                    data-aos={"fade-up"}
+                                    data-aos-duration={1000}
+                                    data-aos-easing={"ease-in-sine"}
+                                >
+                                    <span
+                                        className={
+                                            "mr-4 text-[4vh] font-700 "
+                                        }
+                                    >
+                                        <VisibilitySensor onChange={viewChangeHandler} delayedCall>
+                                            <CountUp decimals={0} end={viewed ? data[key] : 0} />
+                                        </VisibilitySensor>
+                                    </span>
+                                    <span className="mr-12" >
+                                        {key}
+                                    </span>
+                                </div>
+                            )
+                        }
+                    )}
                 </div>
             </div>
         </div>
