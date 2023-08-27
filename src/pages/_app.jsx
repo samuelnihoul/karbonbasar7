@@ -11,6 +11,7 @@ import About from './about'
 import Footer from '../components/Footer'
 import Home from './home'
 import '../i18n'
+import social from '../data/social-data'
 const App = () => {
   return (
     <Suspense fallback={null}>
@@ -26,7 +27,7 @@ const App = () => {
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/reductions" element={<Products />} />
           </Routes>
-          <Footer />
+          <Footer links={social} />
         </div>
       </Router>
     </Suspense>
