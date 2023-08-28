@@ -32,18 +32,18 @@ interface FooterCenteredProps {
   links: { link: string; icon: string }[];
 }
 
-export function FooterCentered({ links }: FooterCenteredProps) {
+export default function FooterCentered({ links }: FooterCenteredProps) {
   const { classes } = useStyles();
   const items = links.map((link) => (
     <Anchor<'a'>
       color="dimmed"
-      key={link.label}
+      key={link.icon}
       href={link.link}
       sx={{ lineHeight: 1 }}
       onClick={(event) => event.preventDefault()}
       size="sm"
     >
-      {link.label}
+      {link.icon}
     </Anchor>
   ));
 
