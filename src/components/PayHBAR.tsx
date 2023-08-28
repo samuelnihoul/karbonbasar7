@@ -19,6 +19,9 @@ interface Props {
     price: number
     productName: string
 }
+let price = await fetch('https://harmonia-ekoutils-mhbcpntktq-ew.a.run.app/notify');
+price = await price.json();
+price = price['data']['HBAR'][0]['quote']['USD']['price']
 
 export default function PayHBAR({ quantity, price, productName }: Props) {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
