@@ -13,12 +13,14 @@ import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { HashConnectTypes } from 'hashconnect'
+
 interface Props {
     quantity: number,
     price: number
+    productName: string
 }
-export default function PayHBAR({ quantity, price }: Props) {
+
+export default function PayHBAR({ quantity, price, productName }: Props) {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
     const { accountIds: connectedAccountIds, isConnected } = useSelector(
         (state: AppStore) => state.hashconnect
@@ -36,9 +38,11 @@ export default function PayHBAR({ quantity, price }: Props) {
                 color={"blurple" as any}
                 variant="standard"
                 value={fromAccountId}
-                onChange={(e) => {
-                    setFromAccountId(e.target.value);
-                }}
+                onChange={
+                    (e) => {
+                        setFromAccountId(e.target.value);
+                    }
+                }
                 displayEmpty
                 sx={
                     fromAccountId
@@ -51,11 +55,14 @@ export default function PayHBAR({ quantity, price }: Props) {
                 }
                 renderValue={(value) => (value ? value : "0.0.111111")}
             >
-                {connectedAccountIds.map((accountId) => (
-                    <MenuItem key={accountId} value={accountId}>
-                        {accountId}
-                    </MenuItem>
-                ))}
+                {
+                    connectedAccountIds.map((accountId) => (
+                        <MenuItem key={accountId} value={accountId}>
+                            {accountId}
+                        </MenuItem>
+                    )
+                    )
+                }
             </Select>
 
             <Typography>What is your email address?</Typography>
@@ -63,9 +70,11 @@ export default function PayHBAR({ quantity, price }: Props) {
                 color={"blurple" as any}
                 variant="standard"
                 value={toAccountId}
-                onChange={(e) => {
-                    setToAccountId(e.target.value);
-                }}
+                onChange={
+                    (e) => {
+                        setToAccountId(e.target.value);
+                    }
+                }
                 placeholder="EarthAngel@x.eco"
             />
             <Typography>How do you want to name your NFT?</Typography>
@@ -73,9 +82,11 @@ export default function PayHBAR({ quantity, price }: Props) {
                 color={"blurple" as any}
                 variant="standard"
                 value={name}
-                onChange={(e) => {
-                    setName(e.target.value);
-                }}
+                onChange={
+                    (e) => {
+                        setName(e.target.value);
+                    }
+                }
                 placeholder="An Earth Angel, to the planet"
             />
             <Button
@@ -87,7 +98,7 @@ export default function PayHBAR({ quantity, price }: Props) {
                             .setTokenIds(['0.0.3276256']).setAccountId(fromAccountId)
                         setSnackbarMessage("Approve in your wallet.")
                         setSnackbarOpen(true)
-                        const signer = await getSigner(fromAccountId) as HashConnectTypes.HashConnectSigner;
+                        const signer = await getSigner(fromAccountId)
                         const frozenTransaction =
                             await associateTransaction.freezeWithSigner(signer);
                         await frozenTransaction.executeWithSigner(signer);
@@ -102,21 +113,23 @@ export default function PayHBAR({ quantity, price }: Props) {
             <Button
                 variant="contained"
                 color={"blurple" as any}
-                onClick={async () => {
-                    const transferTransaction = new TransferTransaction()
-                        .addHbarTransfer(fromAccountId, new Hbar(-amount))
-                        .addHbarTransfer('0.0.1082962', new Hbar(amount))
-                        .setTransactionMemo(toAccountId + ',' + 'test')
-                    setSnackbarMessage("Approve in your wallet.")
-                    setSnackbarOpen(true)
-                    const signer = await getSigner(fromAccountId);
-                    const frozenTransaction =
-                        await transferTransaction.freezeWithSigner(signer);
-                    await frozenTransaction.executeWithSigner(signer);
-                    setSnackbarMessage("Success! Allow 24h to receive your order and confirmation emails.")
-                    setSnackbarOpen(false)
-                    setSnackbarOpen(true)
-                }}
+                onClick={
+                    async () => {
+                        const transferTransaction = new TransferTransaction()
+                            .addHbarTransfer(fromAccountId, new Hbar(-amount))
+                            .addHbarTransfer('0.0.1082962', new Hbar(amount))
+                            .setTransactionMemo(toAccountId + ',' + name + productName)
+                        setSnackbarMessage("Approve in your wallet.")
+                        setSnackbarOpen(true)
+                        const signer = await getSigner(fromAccountId);
+                        const frozenTransaction =
+                            await transferTransaction.freezeWithSigner(signer);
+                        await frozenTransaction.executeWithSigner(signer);
+                        setSnackbarMessage("Success! Allow 24h to receive your order and confirmation emails.")
+                        setSnackbarOpen(false)
+                        setSnackbarOpen(true)
+                    }
+                }
             >
                 2. Pay
             </Button>
@@ -126,15 +139,18 @@ export default function PayHBAR({ quantity, price }: Props) {
                 autoHideDuration={5000}
                 onClose={() => {
                     setSnackbarOpen(false);
-                }}
+                }
+                }
             >
                 <Box
-                    sx={{
-                        bgcolor: "success.main",
-                        color: "white",
-                        p: 2,
-                        borderRadius: 1,
-                    }}
+                    sx={
+                        {
+                            bgcolor: "success.main",
+                            color: "white",
+                            p: 2,
+                            borderRadius: 1,
+                        }
+                    }
                 >
                     {snackbarMessage}
                 </Box>

@@ -1,19 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom/client';
-import App from './pages/_app.jsx';
+import App from './pages/_app';
 import { HashConnectClient } from './components/HashButton.tsx';
 import { store } from './store'
-import { Buffer } from 'buffer'
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from './theme'
-import Analytics from '@vercel/analytics'
-// window.Buffer = window.Buffer || Buffer
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    // <>
     <React.StrictMode>
-        // <Analytics />
         <Provider store={store}>
             <HashConnectClient />
             <ThemeProvider>
@@ -22,5 +17,4 @@ root.render(
             </ThemeProvider>
         </Provider>
     </React.StrictMode>
-    // </>
 ); 
