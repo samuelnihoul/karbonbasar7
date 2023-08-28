@@ -27,7 +27,7 @@ const App = () => {
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/reductions" element={<Products />} />
           </Routes>
-          <Footer links={social} />
+          <Footer />
         </div>
       </Router>
     </Suspense>

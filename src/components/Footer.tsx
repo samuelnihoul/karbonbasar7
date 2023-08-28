@@ -1,6 +1,6 @@
-import { createStyles, Anchor, Group, ActionIcon, rem } from '@mantine/core';
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
-import { MantineLogo } from '@mantine/ds';
+import { createStyles, Anchor, Group, rem } from '@mantine/core';
+import footerData from '../data/footer-data'
+import socialData from '../data/social-data'
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -32,38 +32,32 @@ interface FooterCenteredProps {
   links: { link: string; icon: string }[];
 }
 
-export default function FooterCentered({ links }: FooterCenteredProps) {
+export default function FooterCentered() {
   const { classes } = useStyles();
-  const items = links.map((link) => (
-    <Anchor<'a'>
-      color="dimmed"
-      key={link.icon}
-      href={link.link}
-      sx={{ lineHeight: 1 }}
-      onClick={(event) => event.preventDefault()}
-      size="sm"
-    >
-      {link.icon}
-    </Anchor>
-  ));
+  const items = (links: FooterCenteredProps) => {
+    return (
+      links.links.map((link) => (
+        <Anchor<'a'>
+          color="dimmed"
+          key={link.icon}
+          href={link.link}
+          sx={{ lineHeight: 1 }}
+          onClick={(event) => event.preventDefault()}
+          size="sm"
+        >
+          {link.icon}
+        </Anchor>
+      )
+      )
+    )
+  }
 
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
-        <MantineLogo size={28} />
-
-        <Group className={classes.links}>{items}</Group>
-
+        <Group className={classes.links}>{items({ links: footerData })}</Group>
         <Group spacing="xs" position="right" noWrap>
-          <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandTwitter size="1.05rem" stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandYoutube size="1.05rem" stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandInstagram size="1.05rem" stroke={1.5} />
-          </ActionIcon>
+          {items({ links: socialData })}
         </Group>
       </div>
     </div>
