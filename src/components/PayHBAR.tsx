@@ -33,7 +33,7 @@ interface PriceData {
 }
 
 const apiKey = "YOUR_API_KEY";
-const url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=HBAR&convert=USD";
+const url = "https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol=HBAR";
 const headers = {
     "X-CMC_PRO_API_KEY": apiKey
 };
