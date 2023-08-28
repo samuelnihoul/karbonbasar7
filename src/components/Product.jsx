@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { Card, CardContent, CardActions, Chip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import PayHBAR from './PayHBAR';
-
 export default function Product({ product }) {
   const { i18n, t } = useTranslation(['product']);
   const [quantity, setQuantity] = useState(1);
@@ -13,10 +12,6 @@ export default function Product({ product }) {
     setQuantity(e.target.valueAsNumber > 0 ? e.target.valueAsNumber : quantity);
   };
 
-  let price = await fetch('https://harmonia-ekoutils-mhbcpntktq-ew.a.run.app/notify');
-  price = await price.json();
-  pri = pri['data']['HBAR'][0]['quote']['USD']['price']
-  return amount / pri;
   return (
     <Card ref={cardRef} className="p-10">
       <img className="max-w-[30rem] max-h-[30rem] lazy" src={product.image} alt={productName} />
