@@ -1,7 +1,6 @@
 import Corporate from './corporate'
 import { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Subscribe from './subscribe'
 import Navbar from "../components/Navbar";
 import Products from './reductions'
 import './global.css'
@@ -24,14 +23,13 @@ const App = () => {
             <Route path="/privacy" element={<Privacy />} />
             <Route path='/terms' element={<Terms />} />
             <Route path="/" element={<Home />} />
-            <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/reductions" element={<Products />} />
           </Routes>
           <Footer />
         </div>
       </Router>
     </Suspense>
-  );
-};
+  )
+}
 
 export default App;

@@ -42,7 +42,6 @@ export default function FooterCentered() {
           key={link.icon}
           href={link.link}
           sx={{ lineHeight: 1 }}
-          onClick={(event) => event.preventDefault()}
           size="sm"
         >
           {link.icon}
