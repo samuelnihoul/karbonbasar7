@@ -17,14 +17,6 @@ const App = () => {
       <Router>
         <div className="w-[100vw] h-[100vh]" style={{ height: '100vh', width: '100vw' }}>
           <Navbar />
-          <Routes>
-            <Route path='/corporate' element={<Corporate />} />
-            <Route path='/about' element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path='/terms' element={<Terms />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/reductions" element={<Products />} />
-          </Routes>
           <Footer />
         </div>
       </Router>
