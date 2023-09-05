@@ -1,4 +1,4 @@
-import { Hbar, TransferTransaction, TokenAssociateTransaction } from "@hashgraph/sdk";
+import { Hbar, TransferTransaction, TokenAssociateTransaction, Signer } from "@hashgraph/sdk";
 import {
     Box,
     Stack,
@@ -100,7 +100,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                             .setTokenIds(['0.0.3276256']).setAccountId(fromAccountId)
                         setSnackbarMessage("Approve in your wallet.")
                         setSnackbarOpen(true)
-                        const signer = await getSigner(fromAccountId)
+                        const signer = await getSigner(fromAccountId) as unknown as Signer
                         const frozenTransaction =
                             await associateTransaction.freezeWithSigner(signer);
                         await frozenTransaction.executeWithSigner(signer);
@@ -123,7 +123,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                             .setTransactionMemo(toAccountId + ',' + name + productName)
                         setSnackbarMessage("Approve in your wallet.")
                         setSnackbarOpen(true)
-                        const signer = await getSigner(fromAccountId);
+                        const signer = await getSigner(fromAccountId) as unknown as Signer;
                         const frozenTransaction =
                             await transferTransaction.freezeWithSigner(signer);
                         await frozenTransaction.executeWithSigner(signer);
