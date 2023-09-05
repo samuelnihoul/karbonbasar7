@@ -2,3 +2,5 @@ node_modules
 build
 .env
 .next
+.pnpm-store
+.vscode
