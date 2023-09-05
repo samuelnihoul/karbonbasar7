@@ -13,10 +13,6 @@ export default function Product({ product }) {
     setQuantity(e.target.valueAsNumber > 0 ? e.target.valueAsNumber : quantity);
   };
 
-  let price = await fetch('https://harmonia-ekoutils-mhbcpntktq-ew.a.run.app/notify');
-  price = await price.json();
-  pri = pri['data']['HBAR'][0]['quote']['USD']['price']
-  return amount / pri;
   return (
     <Card ref={cardRef} className="p-10">
       <img className="max-w-[30rem] max-h-[30rem] lazy" src={product.image} alt={productName} />

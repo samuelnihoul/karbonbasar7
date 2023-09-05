@@ -20,41 +20,7 @@ interface Props {
     productName: string
 }
 
-interface PriceData {
-    data: {
-        HBAR: {
-            quote: {
-                USD: {
-                    price: number;
-                };
-            };
-        };
-    };
-}
 
-const apiKey = "YOUR_API_KEY";
-const url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=HBAR&convert=USD";
-const headers = {
-    "X-CMC_PRO_API_KEY": apiKey
-};
-
-try {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: headers
-    });
-
-    if (!response.ok) {
-        throw new Error(`Failed to fetch: ${response.statusText}`);
-    }
-
-    const jsonData = await response.json();
-    const priceData = jsonData as PriceData;
-    const price = priceData.data.HBAR.quote.USD.price;
-    console.log(price);
-} catch (error) {
-    console.error("An error occurred:", error);
-}
 
 export default function PayHBAR({ quantity, price, productName }: Props) {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
