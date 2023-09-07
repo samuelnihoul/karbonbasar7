@@ -73,7 +73,7 @@ export default function ResponsiveAppBar() {
             <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
             </IconButton>
-            <Menu >
+            <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
               {renderMenuItems()}
               <MenuItem>
                 <Hashpack />
@@ -82,7 +82,7 @@ export default function ResponsiveAppBar() {
             </Menu>
           </Box>
 
-          <Avatar src='/pure2.png' sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography variant="h5" component="a" href="" sx={{
             mr: 2,
             display: { xs: 'flex', md: 'none' },
