@@ -5,6 +5,7 @@ import {
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import { AppStore } from "../store";
+import React from 'react'
 
 export const ConnectionInfo = () => {
     const { accountIds: connectedAccountIds, isConnected } = useSelector(

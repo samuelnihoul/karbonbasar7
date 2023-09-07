@@ -11,6 +11,7 @@ import Footer from '../components/Footer'
 import Home from './home'
 import '../i18n'
 import social from '../data/social-data'
+import React from 'react'
 const App = () => {
   return (
     <Suspense fallback={null}>

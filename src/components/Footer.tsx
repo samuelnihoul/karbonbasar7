@@ -1,6 +1,7 @@
 import { createStyles, Anchor, Group, rem } from '@mantine/core';
 import footerData from '../data/footer-data'
 import socialData from '../data/social-data'
+import React from 'react'
 
 const useStyles = createStyles((theme) => ({
   footer: {
