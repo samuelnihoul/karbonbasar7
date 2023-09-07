@@ -9,6 +9,7 @@ import {
 } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import { ContactIconsList } from '../components/ContactIcons.jsx';
+import React from 'react'
 
 const useStyles = createStyles((theme) => ({
   wrapper: {

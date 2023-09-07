@@ -12,6 +12,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPairingData, hc, hcInitPromise } from "../lib/hashconnect";
 import { actions, AppStore } from "../store";
+import React from 'react'
 
 export const HashConnectClient = () => {
     const dispatch = useDispatch();

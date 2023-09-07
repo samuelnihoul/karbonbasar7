@@ -4,7 +4,7 @@ import {
     ThemeProvider as MuiThemeProvider,
 } from "@mui/material/styles";
 import { red } from "@mui/material/colors";
-
+import React from "react"
 declare module "@mui/material/styles" {
     interface Palette {
         blurple: Palette["primary"];

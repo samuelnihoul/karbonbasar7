@@ -6,12 +6,9 @@ import PayHBAR from './PayHBAR';
 export default function Product({ product }) {
   const { i18n, t } = useTranslation(['product']);
   const [quantity, setQuantity] = useState(1);
-  const [isCheckout, setIsCheckout] = useState(false);
   const cardRef = useRef(null);
-
   const productName = i18n.language === 'fr' && product.namefr ? product.namefr : product.name;
   const productDescription = i18n.language === 'fr' ? product.descriptionfr : product.description;
-
   const handleQuantityChange = (e) => {
     setQuantity(e.target.valueAsNumber > 0 ? e.target.valueAsNumber : quantity);
   };
@@ -50,7 +47,6 @@ export default function Product({ product }) {
       </CardContent>
 
       <CardActions disableSpacing>
-        {/*... similar adjustments to the Chip components */}
         <PayHBAR quantity={quantity} price={product.price} productName={product.name} />
       </CardActions>
     </Card>

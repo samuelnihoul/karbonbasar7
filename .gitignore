@@ -1,4 +1,8 @@
-# dependencies
-/node_modules
-.env
+node_modules
 .env.local
+build
+.env
+.next
+.pnpm-store
+.vscode
+
