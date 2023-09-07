@@ -16,6 +16,10 @@ export default
     {
       "icon": "discord",
       "link": "https://discord.gg/99ndpD3r"
+    },
+    {
+      "icon": "calaxy",
+      "link": "https://calaxy.com/harmonia-eko"
     }
 
   ]
