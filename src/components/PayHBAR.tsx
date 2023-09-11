@@ -1,4 +1,5 @@
-import { Hbar, TransferTransaction, TokenAssociateTransaction } from "@hashgraph/sdk";
+import { Hbar, TransferTransaction, TokenAssociateTransaction, Signer } from "@hashgraph/sdk";
+import React from 'react'
 import {
     Box,
     Stack,
@@ -31,7 +32,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
     const [toAccountId, setToAccountId] = useState("");
     const [snackbarMessage, setSnackbarMessage] = useState("")
     const [name, setName] = useState("")
-    const amount = Math.floor(quantity * price * 1000 / price) / 1000
+    const amount = Math.floor(quantity * price * 1000 / 0.063) / 1000
     return (
         <Stack maxWidth="400px" spacing={1} pt={8}>
             <Typography variant="h3">Buy for {amount} HBAR</Typography>
@@ -100,7 +101,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                             .setTokenIds(['0.0.3276256']).setAccountId(fromAccountId)
                         setSnackbarMessage("Approve in your wallet.")
                         setSnackbarOpen(true)
-                        const signer = await getSigner(fromAccountId)
+                        const signer = await getSigner(fromAccountId) as unknown as Signer
                         const frozenTransaction =
                             await associateTransaction.freezeWithSigner(signer);
                         await frozenTransaction.executeWithSigner(signer);
@@ -123,7 +124,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                             .setTransactionMemo(toAccountId + ',' + name + productName)
                         setSnackbarMessage("Approve in your wallet.")
                         setSnackbarOpen(true)
-                        const signer = await getSigner(fromAccountId);
+                        const signer = await getSigner(fromAccountId) as unknown as Signer;
                         const frozenTransaction =
                             await transferTransaction.freezeWithSigner(signer);
                         await frozenTransaction.executeWithSigner(signer);
