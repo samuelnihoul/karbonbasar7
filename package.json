@@ -41,8 +41,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
     "lint": "next lint"
   },
   "browserslist": {
