@@ -1,21 +1,26 @@
-'use client'
 import React from 'react';
-import { Provider } from 'react-redux'
-import App from './pages/_app';
-import { HashConnectClient } from './components/HashButton';
-import { store } from './store'
-import { CssBaseline } from '@mui/material';
-import { ThemeProvider } from './theme'
-export default () => {
+import Counter from './components/Counter'
+import HowItWorks from "./components/HowItWorks";
+import NFTs from "./components/NFTs.jsx";
+import { useTranslation } from 'react-i18next'
+
+export default function home() {
+    const { t } = useTranslation(["home"])
     return (
-        <React.StrictMode>
-            <Provider store={store}>
-                <HashConnectClient />
-                <ThemeProvider>
-                    <CssBaseline />
-                    <App />
-                </ThemeProvider>
-            </Provider>
-        </React.StrictMode>
+        <>
+            <h1 className="text-center text-3xl mt-[10vh] mb-[10vh]">
+                KARBON BASAR
+            </h1>
+            <p className="text-center text-xl">
+                {t('cutecollectiblecarbon')}
+                <br />
+                {t('andmore')}
+                <br />
+                ฅ՞•ﻌ•՞ฅ
+            </p>
+            <NFTs />
+            <HowItWorks />
+            <Counter />
+        </>
     )
 }

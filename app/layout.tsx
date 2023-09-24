@@ -21,3 +21,13 @@ export default function RootLayout({
     </html>
   )
 }
+
+// <React.StrictMode>
+//             <Provider store={store}>
+//                 <HashConnectClient />
+//                 <ThemeProvider>
+//                     <CssBaseline />
+//                     <App />
+//                 </ThemeProvider>
+//             </Provider>
+//         </React.StrictMode>
