@@ -14,10 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={null}>
-          <Navbar />
-          {children}
-          <Footer /></Suspense>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   )
