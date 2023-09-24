@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Products from './reductions'
 import './global.css'
-import Terms from './terms'
+import Terms from '../terms/page'
 import Privacy from './privacy'
 import About from './about'
 import Footer from '../components/Footer'
