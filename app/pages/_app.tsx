@@ -15,12 +15,10 @@ import React from 'react'
 const App = () => {
   return (
     <Suspense fallback={null}>
-      <Router>
-        <div className="w-[100vw] h-[100vh]" style={{ height: '100vh', width: '100vw' }}>
-          <Navbar />
-          <Footer />
-        </div>
-      </Router>
+      <div className="w-[100vw] h-[100vh]" style={{ height: '100vh', width: '100vw' }}>
+        <Navbar />
+        <Footer />
+      </div>
     </Suspense>
   )
 }

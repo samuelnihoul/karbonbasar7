@@ -1,3 +1,4 @@
+'use client'
 import * as React from 'react';
 import {
   AppBar, Box, Toolbar, IconButton, Typography, Menu,
