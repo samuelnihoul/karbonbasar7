@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 interface Props {
@@ -33,6 +33,20 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
     const [snackbarMessage, setSnackbarMessage] = useState("")
     const [name, setName] = useState("")
     const amount = Math.floor(quantity * price * 1000 / 0.063) / 1000
+    const [scritLoaded, setScriptLoaded] = useState(false)
+    useEffect(() => {
+        const addPaypalScript = () => {
+            const script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = `https://www.paypal.com/sdk/js?client-id=AUYYe_jA-9FTUNZF-UFRISfMvUAnKTzxAb1pELVDW36PaFFvg_a3YXGJfgrc32USF79FL3C59jTluzvc`;
+            script.async = true;
+
+            script.onload = () => setScriptLoaded(true);
+
+            document.body.appendChild(script);
+        };
+        addPaypalScript();
+    }, []);
     return (
         <Stack maxWidth="400px" spacing={1} pt={8}>
             <Typography variant="h3">Buy for {amount} HBAR</Typography>
