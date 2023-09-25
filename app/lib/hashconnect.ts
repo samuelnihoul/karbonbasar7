@@ -4,8 +4,8 @@ const env = "mainnet";
 const appMetadata: HashConnectTypes.AppMetadata = {
   name: "Karbon Basar",
   description: "Your NFT emission reduction marketplace.",
-  icon: window.location.origin + "/pure2.png",
-  url: window.location.origin,
+  icon: "/pure2.png",
+  url: "https://karbonbasar.harmonia.eco",
 };
 
 export const hc = new HashConnect();

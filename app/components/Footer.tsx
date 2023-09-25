@@ -1,3 +1,4 @@
+'use client'
 import { createStyles, Anchor, Group, rem } from '@mantine/core';
 import footerData from '../data/footer-data'
 import socialData from '../data/social-data'
