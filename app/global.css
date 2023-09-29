@@ -15,9 +15,8 @@ html {
 * {
     font-family: 'cascadia';
 }
-@font-face{
-font-family:"cascadia";
-src:url("../../public/assets/fonts/cascadia.otf")
+
+@font-face {
+    font-family: "cascadia";
+    src: url("../public/assets/fonts/cascadia.otf")
 }
-
-
