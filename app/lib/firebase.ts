@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from 'firebase/firestore'
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE,
   authDomain: "hypnotic-trees-328016.firebaseapp.com",
   projectId: "hypnotic-trees-328016",
   storageBucket: "hypnotic-trees-328016.appspot.com",
