@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body><StrictMode>
+      <body>
         <ReduxProvider>
           <HashConnectClient />
           <ThemeProvider>
@@ -27,7 +27,6 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </ReduxProvider>
-      </StrictMode>
 
       </body>
     </html>
