@@ -9,7 +9,6 @@ import ReduxProvider from './components/ReduxProvider'
 import { HashConnectClient } from './components/HashButton'
 import { ThemeProvider } from './theme'
 import { CssBaseline } from '@mui/material'
-import { store } from './store'
 export default function RootLayout({
   children,
 }: {
@@ -17,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body><Suspense>
         <ReduxProvider>
           <HashConnectClient />
           <ThemeProvider>
@@ -27,7 +26,7 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </ReduxProvider>
-
+      </Suspense>
       </body>
     </html>
   )
