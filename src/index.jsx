@@ -8,13 +8,11 @@ import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from './theme'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <HashConnectClient />
-            <ThemeProvider>
-                <CssBaseline />
-                <App />
-            </ThemeProvider>
-        </Provider>
-    </React.StrictMode>
+    <Provider store={store}>
+        <HashConnectClient />
+        <ThemeProvider>
+            <CssBaseline />
+            <App />
+        </ThemeProvider>
+    </Provider>
 ); 
