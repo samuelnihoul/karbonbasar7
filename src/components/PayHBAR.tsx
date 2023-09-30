@@ -50,7 +50,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
     }, []);
     return (
         <div className='flex-col'>
-            {scriptLoaded && <PayPalButton />}
+            {scriptLoaded && <PayPalButton amount={quantity * price} currency={'USD'} />}
 
             <Stack maxWidth="400px" spacing={1} pt={8}>
                 <Typography variant="h3">Buy for {amount} HBAR</Typography>
