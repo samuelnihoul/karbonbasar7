@@ -23,7 +23,7 @@ interface Props {
 }
 import db from '../lib/firebase'
 import { addDoc, collection } from 'firebase/firestore'
-
+import { validateEmail, validateName } from "../lib/validator";
 
 export default function PayHBAR({ quantity, price, productName }: Props) {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
@@ -104,12 +104,13 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                 value={name}
                 onChange={
                     (e) => {
-                        setName(e.target.value);
+                        validateName(e) &&
+                            setName(e.target.value);
                     }
                 }
                 placeholder="An Earth Angel, to the planet"
             />
-            {scriptLoaded && email && name && fromAccountId && <>
+            {scriptLoaded && validateEmail(email) && name && fromAccountId && <>
 
                 <Stack maxWidth="400px" spacing={1} pt={8}>
                     <Button
