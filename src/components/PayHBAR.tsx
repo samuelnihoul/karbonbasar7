@@ -49,7 +49,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
         addPaypalScript();
     }, []);
     return (
-        <>
+        <div className='flex-col'>
             {scriptLoaded && <PayPalButton />}
 
             <Stack maxWidth="400px" spacing={1} pt={8}>
@@ -176,6 +176,6 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                         {snackbarMessage}
                     </Box>
                 </Snackbar>
-            </Stack></>
+            </Stack></div>
     )
 }
