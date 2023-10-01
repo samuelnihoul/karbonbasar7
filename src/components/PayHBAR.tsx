@@ -137,7 +137,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                     <PayPalButton amount={quantity * price} currency={'USD'} onSuccess={() => {
                         alert('success'); addDoc(collection(db, 'purchases'), {
                             'email': email,
-                            'accountID': AccountId,
+                            'accountID': fromAccountId,
                             'quantity': quantity,
                             'price': price
 
@@ -162,6 +162,11 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                                 setSnackbarMessage("Success! Allow 24h to receive your order and confirmation emails.")
                                 setSnackbarOpen(false)
                                 setSnackbarOpen(true)
+                                addDoc(collection(db,'purchases'),{
+                                    'email':email,
+                                    'accountID':fromAccountId,
+                                    'quantity':quantity,
+                                    'price':price})
                             }
                         }
                     >
