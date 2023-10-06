@@ -4,7 +4,6 @@ import Counter from './components/Counter'
 import HowItWorks from "./components/HowItWorks";
 import NFTs from "./components/NFTs.jsx";
 import { useTranslation } from 'react-i18next'
-import './global.css'
 export default function home() {
     const { t } = useTranslation(["home"])
     return (
