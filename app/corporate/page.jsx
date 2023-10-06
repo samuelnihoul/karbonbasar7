@@ -68,7 +68,7 @@ const useStyles = createStyles((theme) => ({
 
 const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
 
-export default function ContactUs() {
+export default function Corporate() {
   const { classes } = useStyles();
 
   const icons = social.map((Icon, index) => (

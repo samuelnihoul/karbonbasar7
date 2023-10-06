@@ -1,5 +1,5 @@
 import React from 'react'
-export default () => {
+export default function Governance() {
 
     return (
         <section>
