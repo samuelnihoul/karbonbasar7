@@ -2,7 +2,7 @@
 import React from 'react'
 import Counter from '../components/Counter'
 import { useTranslation } from 'react-i18next'
-export default function about() {
+export default function About() {
     const { t } = useTranslation(["about"])
     return (
         <div className='min-h-[80vh] minw-[80%] m-auto align-center p-[5vw]'>

@@ -5,7 +5,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import { DocumentData, collection, getDocs } from "firebase/firestore";
 import { useTranslation } from 'react-i18next'
 import db from '../lib/firebase'
-export default () => {
+export default function Counter() {
     const { t } = useTranslation(["offset"])
     const [viewed, setViewed] = useState(false);
     const [data, setData] = useState<DocumentData>({})
