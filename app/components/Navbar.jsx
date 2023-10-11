@@ -51,66 +51,67 @@ export default function ResponsiveAppBar() {
     }
   }, []);
   return (
-    <AppBar position="static" color='transparent'>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' }, mr: 1 }} />
-          <Typography variant="h6" component="a" href="/" sx={{
-            mr: 2,
-            display: { xs: 'none', md: 'flex' },
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-          }}>
-            KB
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' } }}>
-            <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
-              <MenuIcon />
-            </IconButton>
-            <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
-              {renderMenuItems()}
-              <MenuItem>
-                <Hashpack />
-              </MenuItem><MenuItem>
-                <ConnectionInfo />
-              </MenuItem>
-            </Menu>
-          </Box>
-          <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' }, mr: 1 }} />
-          <Typography variant="h5" component="a" href="" sx={{
-            mr: 2,
-            display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' },
-            flexGrow: 1,
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-          }}>
-            KB
-          </Typography>
-          <Box sx={{ display: { sx: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' } }}>
-            <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='pl-5 bg-black'>
-              <option value="en">🇺🇸</option>
-              <option value="fr">🇫🇷</option>
-            </select>
-          </Box>
-          <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' } }}>
-            {renderDesktopButtons()}
-            <Box sx={{ flexGrow: 2 }} />
-            <Hashpack />
-            <ConnectionInfo />
-            <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='pl-5 bg-black'>
-              <option value="en">🇺🇸</option>
-              <option value="fr">🇫🇷</option>
-            </select>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <>{window &&
+      <AppBar position="static" color='transparent'>
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' }, mr: 1 }} />
+            <Typography variant="h6" component="a" href="/" sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}>
+              KB
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' } }}>
+              <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
+                <MenuIcon />
+              </IconButton>
+              <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
+                {renderMenuItems()}
+                <MenuItem>
+                  <Hashpack />
+                </MenuItem><MenuItem>
+                  <ConnectionInfo />
+                </MenuItem>
+              </Menu>
+            </Box>
+            <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' }, mr: 1 }} />
+            <Typography variant="h5" component="a" href="" sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}>
+              KB
+            </Typography>
+            <Box sx={{ display: { sx: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' } }}>
+              <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='pl-5 bg-black'>
+                <option value="en">🇺🇸</option>
+                <option value="fr">🇫🇷</option>
+              </select>
+            </Box>
+            <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' } }}>
+              {renderDesktopButtons()}
+              <Box sx={{ flexGrow: 2 }} />
+              <Hashpack />
+              <ConnectionInfo />
+              <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='pl-5 bg-black'>
+                <option value="en">🇺🇸</option>
+                <option value="fr">🇫🇷</option>
+              </select>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>}</>
   );
 }
 
