@@ -108,7 +108,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                             setName(e.target.value);
                     }
                 }
-                placeholder="An Earth Angel, to the planet"
+                placeholder="My 1% for the planet"
             />
             {scriptLoaded && validateEmail(email) && name && fromAccountId && <>
 
