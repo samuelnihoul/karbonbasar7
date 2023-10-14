@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 a {
     color: gold;
@@ -13,11 +14,5 @@ html {
 }
 
 * {
-    font-family: 'cascadia';
+    font-family: 'Roboto', sans-serif;
 }
-@font-face{
-font-family:"cascadia";
-src:url("../../public/assets/fonts/cascadia.otf")
-}
-
-

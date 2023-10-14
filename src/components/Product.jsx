@@ -14,13 +14,16 @@ export default function Product({ product }) {
   };
 
   return (
-    <Card ref={cardRef} className="p-10">
-      <img className="max-w-[30rem] max-h-[30rem] lazy" src={product.image} alt={productName} />
-
+    <Card ref={cardRef} sx={
+      {
+        padding: '1rem',
+        boxShadow: '0.5rem white',
+      }
+    }>
+      < img className="w-4/5 h-4/5" src={product.image} alt={productName} />
       <CardContent>
         <p className="text-[2rem]">{productName}</p>
         <span className="p-10 text-m">${product.price}/0.1 CO2e tonne</span>
-
         <div className="my-4">
           <span className="mainColor">{t('quantity')}</span>
           <input
@@ -49,7 +52,7 @@ export default function Product({ product }) {
       <CardActions disableSpacing>
         <PayHBAR quantity={quantity} price={product.price} productName={product.name} />
       </CardActions>
-    </Card>
+    </Card >
   );
 };
 
