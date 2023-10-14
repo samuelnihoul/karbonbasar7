@@ -104,7 +104,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                 value={name}
                 onChange={
                     (e) => {
-                        validateName(e) &&
+                       
                             setName(e.target.value);
                     }
                 }
