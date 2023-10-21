@@ -51,7 +51,7 @@ export default function ResponsiveAppBar() {
     }
   }, []);
   return (
-    <>{window &&
+    <>
       <AppBar position="static" color='transparent'>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -75,7 +75,8 @@ export default function ResponsiveAppBar() {
                 {renderMenuItems()}
                 <MenuItem>
                   <Hashpack />
-                </MenuItem><MenuItem>
+                </MenuItem>
+                <MenuItem>
                   <ConnectionInfo />
                 </MenuItem>
               </Menu>
@@ -111,7 +112,7 @@ export default function ResponsiveAppBar() {
             </Box>
           </Toolbar>
         </Container>
-      </AppBar>}</>
+      </AppBar></>
   );
 }
 
