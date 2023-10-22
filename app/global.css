@@ -14,5 +14,10 @@ a {
 } */
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'cascadia';
+}
+
+@font-face {
+    font-family: "cascadia";
+    src: url("../public/assets/fonts/cascadia.otf")
 }

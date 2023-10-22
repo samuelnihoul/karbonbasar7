@@ -1,3 +1,4 @@
+'use client'
 import { Hbar, TransferTransaction, TokenAssociateTransaction, Signer, AccountId } from "@hashgraph/sdk";
 import React from 'react'
 import {
@@ -104,7 +105,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                 value={name}
                 onChange={
                     (e) => {
-                       
+                        validateName(e) &&
                             setName(e.target.value);
                     }
                 }
@@ -162,11 +163,12 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                                 setSnackbarMessage("Success! Allow 24h to receive your order and confirmation emails.")
                                 setSnackbarOpen(false)
                                 setSnackbarOpen(true)
-                                addDoc(collection(db,'purchases'),{
-                                    'email':email,
-                                    'accountID':fromAccountId,
-                                    'quantity':quantity,
-                                    'price':price})
+                                addDoc(collection(db, 'purchases'), {
+                                    'email': email,
+                                    'accountID': fromAccountId,
+                                    'quantity': quantity,
+                                    'price': price
+                                })
                             }
                         }
                     >
