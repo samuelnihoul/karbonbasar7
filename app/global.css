@@ -32,4 +32,5 @@ body {
 
 .bg-accent {
     background-color: var(--accent);
+    color: black;
 }

@@ -59,7 +59,7 @@ export default function HashConnectConnectButton() {
 
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-    let connectButtonText = "Connect Hedera Wallet";
+    let connectButtonText = "HASHPACK CONNECT";
     if (isConnected) {
         if (connectedAccountIds.length > 1) {
             connectButtonText = `Disconnect Accounts`;

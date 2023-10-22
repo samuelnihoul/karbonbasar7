@@ -105,9 +105,9 @@ export default function ResponsiveAppBar() {
               <Box sx={{ flexGrow: 2 }} />
               <Hashpack />
               <ConnectionInfo />
-              <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='pl-5 bg-accent rounded'>
-                <option value="en" className='accent'>🇺🇸</option>
-                <option value="fr">🇫🇷</option>
+              <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='bg-accent rounded p-1 m-1' label='\u2690'>
+                <option value="en" className='accent'>&#9872; EN</option>
+                <option value="fr">&#9872; FR</option>
               </select>
             </Box>
           </Toolbar>
