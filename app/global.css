@@ -1,23 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 a {
-    color: lightgreen;
+    color: var(--accent);
 }
 
 
-html {
+body {
     background-color: black;
     color: white;
+
 }
 
 * {
-    font-family: 'cascadia';
+    font-family: 'cascadia', sans-serif;
 }
 
 @font-face {
     font-family: "cascadia";
     src: url("../public/assets/fonts/cascadia.otf")
+}
+
+:root {
+    --accent: lightgreen;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.bg-accent {
+    background-color: var(--accent);
 }
