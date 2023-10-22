@@ -4,14 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 a {
-    color: gold;
+    color: lightgreen;
 }
 
 
-/* html {
+html {
     background-color: black;
     color: white;
-} */
+}
 
 * {
     font-family: 'cascadia';
