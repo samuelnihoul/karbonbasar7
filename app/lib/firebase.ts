@@ -12,6 +12,6 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-getAnalytics(app)
+typeof window != 'undefined' && getAnalytics(app)
 
 export default db;

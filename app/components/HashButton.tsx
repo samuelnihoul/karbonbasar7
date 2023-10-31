@@ -68,7 +68,7 @@ export default function HashConnectConnectButton() {
         }
     }
 
-    return (
+    return (typeof window != 'undefined' &&
         <Box>
             <Button
                 color={"blurple" as any}
