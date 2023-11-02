@@ -10,8 +10,7 @@ import ReduxProvider from './components/ReduxProvider'
 import { HashConnectClient } from './components/HashButton'
 import { ThemeProvider } from './theme'
 import { CssBaseline } from '@mui/material'
-import { i18n } from './i18n'
-import { I18nextProvider } from 'react-i18next'
+import I18nextProvider from './i18n'
 export default function RootLayout({
   children,
 }: {
@@ -25,10 +24,11 @@ export default function RootLayout({
             <HashConnectClient />
             <ThemeProvider>
               <CssBaseline />
-              <I18nextProvider i18n={i18n}>
+              <I18nextProvider>
                 <Navbar />
                 {children}
-                <Footer /></I18nextProvider>
+                <Footer />
+              </I18nextProvider>
             </ThemeProvider>
           </ReduxProvider>
         </Suspense>
