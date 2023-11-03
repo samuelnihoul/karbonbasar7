@@ -1,8 +1,8 @@
 'use client'
 import React from 'react';
-import Counter from './components/Counter'
-import HowItWorks from "./components/HowItWorks";
-import NFTs from "./components/NFTs.jsx";
+import Counter from '../components/Counter'
+import HowItWorks from "../components/HowItWorks";
+import NFTs from "../components/NFTs.jsx";
 import { useTranslation } from 'react-i18next'
 export default function Home() {
     const { t } = useTranslation(["home"])
@@ -12,9 +12,9 @@ export default function Home() {
                 KARBON BASAR
             </h1>
             <p className="text-center text-xl">
-                {t('cutecollectiblecarbon')}
+                {t('Cute Collectible Emission Reductions')}
                 <br />
-                {t('andmore')}
+                {t('And More')}
                 <br />
                 ฅ՞•ﻌ•՞ฅ
             </p>
