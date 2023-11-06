@@ -10,7 +10,7 @@ import ReduxProvider from '../components/ReduxProvider'
 import { HashConnectClient } from '../components/HashButton'
 import { ThemeProvider } from '../theme'
 import { CssBaseline } from '@mui/material'
-import I18nextProvider from '../i18nConfig'
+import I18nextProvider from '../../i18nConfig'
 import React from 'react'
 export default function RootLayout({
   children,
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Suspense>
+        <Suspense fallback={<p>Loading...</p>}>
           <ReduxProvider>
             <HashConnectClient />
             <ThemeProvider>
@@ -32,7 +32,7 @@ export default function RootLayout({
           </ReduxProvider>
         </Suspense>
       </body>
-    </html>
+    </html >
   )
 }
 
