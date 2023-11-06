@@ -1,10 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
-import Product from '../components/Product.jsx';
-import db from '../lib/firebase'
+import Product from '../../components/Product.jsx';
+import db from '../../lib/firebase.js'
 import { collection, getDocs, DocumentData } from 'firebase/firestore'
-import Counter from '../components/Counter';
+import Counter from '../../components/Counter';
 import { useTranslation } from 'react-i18next'
 const Products = () => {
   const { t } = useTranslation(["offset"])

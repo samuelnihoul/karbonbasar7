@@ -10,7 +10,6 @@ import ReduxProvider from '../components/ReduxProvider'
 import { HashConnectClient } from '../components/HashButton'
 import { ThemeProvider } from '../theme'
 import { CssBaseline } from '@mui/material'
-import I18nextProvider from '../../i18nConfig'
 import React from 'react'
 export default function RootLayout({
   children,

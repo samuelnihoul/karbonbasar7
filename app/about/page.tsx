@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Counter from '../components/Counter'
+import Counter from '../../components/Counter'
 import { useTranslation } from 'react-i18next'
 export default function About() {
     const { t } = useTranslation(["about"])
