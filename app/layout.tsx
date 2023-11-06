@@ -1,7 +1,7 @@
 import { Suspense, StrictMode } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import '../global.css'
+import './global.css'
 export const metadata = {
   title: 'Karbon Basar',
   description: 'Emission Reductions with Rewards',
