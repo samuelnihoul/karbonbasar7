@@ -9,10 +9,9 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Hashpack from './HashButton';
 import { ConnectionInfo } from './ConnectionInfo';
-
+import routes from '../data/navbar-data'
 export default function ResponsiveAppBar() {
   const { i18n, t } = useTranslation(['navbar']);
-  const routes = ['home', 'reductions', 'about', 'corporate'];
 
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value);
@@ -30,17 +29,17 @@ export default function ResponsiveAppBar() {
 
   const renderMenuItems = () =>
     routes.map((page) => (
-      <MenuItem key={t(page)} onClick={handleCloseNavMenu}>
+      <MenuItem key={page.address} onClick={handleCloseNavMenu}>
         <Typography textAlign="center">
-          <a href={page === 'home' ? '/' : page}>{t(page)}</a>
+          <a href={page.address}>{page.nav}</a>
         </Typography>
       </MenuItem>
     ));
 
   const renderDesktopButtons = () =>
     routes.map((page) => (
-      <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-        <a href={page === 'home' ? '/' : page}>{t(page)}</a>
+      <Button key={page.address} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+        <a href={page.address}>{page.nav}</a>
       </Button>
     ));
 
@@ -105,7 +104,7 @@ export default function ResponsiveAppBar() {
               <Box sx={{ flexGrow: 2 }} />
               <Hashpack />
               <ConnectionInfo />
-              <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='bg-accent rounded p-1 m-1' label='\u2690'>
+              <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='bg-accent rounded p-1 m-1' >
                 <option value="en" className='accent'>&#9872; EN</option>
                 <option value="fr">&#9872; FR</option>
               </select>
