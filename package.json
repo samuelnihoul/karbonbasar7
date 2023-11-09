@@ -13,8 +13,6 @@
     "firebase": "^9.8.4",
     "hashconnect": "^0.2.4",
     "i18next": "^23.6.0",
-    "i18next-browser-languagedetector": "^7.0.1",
-    "i18next-http-backend": "^2.2.0",
     "i18next-resources-to-backend": "^1.1.4",
     "next-i18n-router": "^5.0.1",
     "postcss": "^8.4.30",
@@ -34,9 +32,9 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "build": "bunx next build",
-    "start": "bunx next start",
-    "dev": "bunx next dev"
+    "build": "bunx i18nexus fetch;bunx next build",
+    "start": "bunx i18nexus fetch;bunx next start",
+    "dev": "bunx i18nexus fetch;bunx next dev"
   },
   "browserslist": {
     "production": [
