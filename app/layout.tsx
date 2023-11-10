@@ -19,17 +19,17 @@ export default function RootLayout({
   return (
     <html >
       <body>
-        <Suspense fallback={<p>Loading...</p>}>
-          <ReduxProvider>
-            <HashConnectClient />
-            <ThemeProvider>
-              <CssBaseline />
-              <Navbar />
-              {children}
-              <Footer />
-            </ThemeProvider>
-          </ReduxProvider>
-        </Suspense>
+        {/* <Suspense fallback={<p>Loading...</p>}> */}
+        <ReduxProvider>
+          <HashConnectClient />
+          <ThemeProvider>
+            <CssBaseline />
+            <Navbar />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </ReduxProvider>
+        {/* </Suspense> */}
       </body>
     </html >
   )
