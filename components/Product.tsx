@@ -1,11 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { Card, CardContent, CardActions, Chip } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import PayHBAR from './Pay';
 import ProductInterface from './ProductInterface'
 
 export default function Product({ product }: { product: ProductInterface }) {
-  const { i18n, t } = useTranslation(['product']);
   const [quantity, setQuantity] = useState(1);
   const cardRef = useRef(null);
   const handleQuantityChange = (e) => {

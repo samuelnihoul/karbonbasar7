@@ -5,28 +5,17 @@ import {
   Container, Button, Avatar, MenuItem
 } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
-import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
 import Hashpack from './HashButton';
 import { ConnectionInfo } from './ConnectionInfo';
 import routes from '../data/navbar-data'
 export default function ResponsiveAppBar() {
-  const { i18n, t } = useTranslation(['navbar']);
-
-  const handleLanguageChange = (e) => {
-    i18n.changeLanguage(e.target.value);
-  };
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   const renderMenuItems = () =>
     routes.map((page) => (
       <MenuItem key={page.address} onClick={handleCloseNavMenu}>
@@ -35,20 +24,12 @@ export default function ResponsiveAppBar() {
         </Typography>
       </MenuItem>
     ));
-
   const renderDesktopButtons = () =>
     routes.map((page) => (
       <Button key={page.address} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
         <a href={page.address}>{page.nav}</a>
       </Button>
     ));
-
-  React.useEffect(() => {
-    const lang = localStorage.getItem("i18nextLng");
-    if (lang && lang.length > 2) {
-      i18next.changeLanguage("en");
-    }
-  }, []);
   return (typeof localStorage != "undefined" &&
     <>
       <AppBar position="static" color='transparent'>
@@ -93,21 +74,11 @@ export default function ResponsiveAppBar() {
             }}>
               KB
             </Typography>
-            <Box sx={{ display: { sx: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' } }}>
-              <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='pl-5 bg-black'>
-                <option value="en">🇺🇸</option>
-                <option value="fr">🇫🇷</option>
-              </select>
-            </Box>
             <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' } }}>
               {renderDesktopButtons()}
               <Box sx={{ flexGrow: 2 }} />
               <Hashpack />
               <ConnectionInfo />
-              <select value={localStorage.getItem("i18nextLng")} onChange={handleLanguageChange} className='bg-accent rounded p-1 m-1' >
-                <option value="en" className='accent'>&#9872; EN</option>
-                <option value="fr">&#9872; FR</option>
-              </select>
             </Box>
           </Toolbar>
         </Container>
