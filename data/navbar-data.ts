@@ -1,7 +1,5 @@
 export default [
-    {
-        nav: 'home', address: '/'
-    },
+
     {
         nav: 'products', address: '/products'
     },
