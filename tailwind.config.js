@@ -1,5 +1,10 @@
 module.exports = {
-  content: ["./src/**/*.{html,js,tsx,ts,jsx}"],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+
   theme: {
     extend: {},
     fontSize: {
@@ -13,6 +18,5 @@ module.exports = {
       '4xl': '20.441vh',
       '5xl': '40.052vh',
     },
-
   }
-}
+} 
