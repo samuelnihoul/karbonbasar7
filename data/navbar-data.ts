@@ -3,7 +3,7 @@ export default [
         nav: 'home', address: '/'
     },
     {
-        nav: 'reductions', address: '/reductions'
+        nav: 'products', address: '/products'
     },
     {
         nav: 'about', address: '/about'
