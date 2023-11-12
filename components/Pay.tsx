@@ -26,7 +26,7 @@ import db from '../lib/firebase'
 import { addDoc, collection } from 'firebase/firestore'
 import { validateEmail, validateName } from "../lib/validator";
 
-export default function PayHBAR({ quantity, price, productName }: Props) {
+export default function Pay({ quantity, price, productName }: Props) {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
     const { accountIds: connectedAccountIds, isConnected } = useSelector(
         (state: AppStore) => state.hashconnect
@@ -62,7 +62,7 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                         setEmail(e.target.value);
                     }
                 }
-                placeholder="EarthAngel@x.eco"
+                placeholder="earthling@ecomail.com"
             />
 
             <Typography>What account do you want to use? *</Typography>
@@ -105,11 +105,11 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                 value={name}
                 onChange={
                     (e) => {
-                        validateName(e) &&
-                            setName(e.target.value);
+
+                        setName(e.target.value);
                     }
                 }
-                placeholder="An Earth Angel, to the planet"
+                placeholder="My 1% for the planet"
             />
             {scriptLoaded && validateEmail(email) && name && fromAccountId && <>
 
@@ -167,7 +167,8 @@ export default function PayHBAR({ quantity, price, productName }: Props) {
                                     'email': email,
                                     'accountID': fromAccountId,
                                     'quantity': quantity,
-                                    'price': price
+                                    'price': price,
+                                    'name': name
                                 })
                             }
                         }

@@ -11,4 +11,5 @@ export default interface Product {
     methodology: string,
     stock: number,
     image: string
+    tags: []
 }
