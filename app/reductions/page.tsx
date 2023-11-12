@@ -1,28 +1,22 @@
-'use client'
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
-import Product from '../../components/Product.jsx';
+import Product from '../../components/Product';
 import db from '../../lib/firebase'
 import { collection, getDocs, DocumentData } from 'firebase/firestore'
 import Counter from '../../components/Counter';
-const Products = () => {
-  const [products, setProducts] = useState<DocumentData[]>([])
-  async function fetchProducts() {
-    if (products.length == 0) {
-      const snapshot = await getDocs(collection(db, 'products'))
-      snapshot.forEach(doc => {
-        setProducts(products => [...products, { id: doc.id, data: doc.data() }])
-      }
-      )
+async function fetchProducts() {
+  let products = []
+  if (products.length == 0) {
+    const snapshot = await getDocs(collection(db, 'products'))
+    snapshot.forEach(doc => {
+      products = [...products, { id: doc.id, data: doc.data() }]
     }
+    )
   }
-
-  useEffect(
-    () => {
-      fetchProducts()
-    }
-    , []
-  )
+  return products
+}
+export default async function Products() {
+  const products = await fetchProducts()
   return (
     <>
       <section>
@@ -39,5 +33,4 @@ const Products = () => {
   )
 }
 
-export default Products;
 
