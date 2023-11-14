@@ -33,22 +33,24 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "build": "i18nexus pull; next build",
-    "start": "i18nexus pull; next start",
-    "dev": "next dev"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "module": "index.ts",
-  "type": "module"
+    "build": "bunx i18nexus pull; next build",
+    "start": "bunx i18nexus pull; next start",
+    "dev": "bunx next dev",
+    "test": "bunx playwright show-report"
+  }
+},
+"browserslist": {
+  "production": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "development": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+  ]
+},
+"module": "index.ts",
+"type": "module"
 }
