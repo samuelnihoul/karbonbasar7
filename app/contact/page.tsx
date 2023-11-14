@@ -6,8 +6,8 @@ export default function Contact() {
             {data.map(
                 (el) => {
                     return (
-                        <ul>
-                            <li key={el.title}>
+                        <ul key={el.title}>
+                            <li>
                                 <h3 className='font-bold'>{el.title}</h3>
                                 <span>{el.description}</span>
                             </li></ul>
