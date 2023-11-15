@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+    color: var(--accent);
+}
+
+
+body {
+    background-color: black;
+    color: white;
+
+}
+
+* {
+    font-family: 'cascadia', sans-serif;
+}
+
+@font-face {
+    font-family: "cascadia";
+    src: url("../public/assets/fonts/cascadia.otf")
+}
+
+:root {
+    --accent: lightgreen;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.bg-accent {
+    background-color: var(--accent);
+    color: black;
+}
