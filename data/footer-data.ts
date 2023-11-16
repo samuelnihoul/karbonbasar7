@@ -1,11 +1,11 @@
 export default [
   {
-    "icon": "privacy policy",
+    "name": "privacy policy",
     "link": "/privacy"
 
   },
   {
-    "icon": "terms & conditions",
+    "name": "terms & conditions",
     "link": "/terms"
   }
 ]

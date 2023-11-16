@@ -1,10 +1,10 @@
-const path = require('path');
+import path from 'path'
 
-module.exports = {
+export  default {
     // ...other configurations...
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, 'path/to/your/root/directory'),
+            '@': path.resolve(__dirname),
         },
     },
 };
