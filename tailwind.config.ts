@@ -1,4 +1,4 @@
-module.exports = {
+export default  {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {},
     fontSize: {
-      sm: '0.8vh',
+      'sm': '0.8vh',
       'base': '1vh',
       'm': '2vh',
       'l': '3vh',

@@ -31,7 +31,6 @@ export default function ResponsiveAppBar() {
       </Button>
     ));
   return (typeof localStorage != "undefined" &&
-    <>
       <AppBar position="static" color='transparent'>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -82,7 +81,7 @@ export default function ResponsiveAppBar() {
             </Box>
           </Toolbar>
         </Container>
-      </AppBar></>
+      </AppBar>
   );
 }
 
