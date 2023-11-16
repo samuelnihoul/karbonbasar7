@@ -8,7 +8,7 @@ export default  {
   theme: {
     extend: {},
     fontSize: {
-      sm: '0.8vh',
+      'sm': '0.8vh',
       'base': '1vh',
       'm': '2vh',
       'l': '3vh',
