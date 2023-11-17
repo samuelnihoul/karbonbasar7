@@ -1,5 +1,5 @@
-import type {Config} from 'tailwindcss'
-const config:Config= {
+import type { Config } from 'tailwindcss'
+const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -19,7 +19,7 @@ const config:Config= {
       '4xl': '20.441vh',
       '5xl': '40.052vh',
     },
-  }
-  plugins:[]
-} 
-export default Config
+  },
+  plugins: []
+}
+export default config
