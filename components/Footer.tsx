@@ -8,11 +8,11 @@ export default function Footer  ()  {
      {
      footerData.map(
      (el)=>{
-     <li key={el.name}>
+     return(<li key={el.name}>
      <a href={el.link}>
      {el.name}
      </a>
-     </li>
+     </li>)
      }
          )
      } 
@@ -21,11 +21,12 @@ export default function Footer  ()  {
      {
      socialData.map(
      (el)=>{
+     return(
      <li key={el.icon}>
      <a href={el.link}>
      {el.icon}
      </a>
-     </li>
+     </li>)
      }
          )
      } 

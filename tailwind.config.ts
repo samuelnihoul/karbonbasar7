@@ -19,7 +19,7 @@ const config:Config= {
       '4xl': '20.441vh',
       '5xl': '40.052vh',
     },
-  }
+  },
   plugins:[]
 } 
 export default Config
