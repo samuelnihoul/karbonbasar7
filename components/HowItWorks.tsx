@@ -6,9 +6,9 @@ export default function HowItWorks() {
             <h2 className='mb-[2.5vh] mt-[2.5vh] text-2xl'>{'How It Works'}</h2>
             <p className='p-2 pb-[50px]'>{'On Karbon Basar, you can find a selection of most efficient emission reduction projects from across the globe.'}</p>
             <img src='/assets/images/example2.png' className='m-auto'></img>
-            <button className='bg-white rounded-md px-[2rem] m-[2rem] py-[1rem] shadow-md shadow-orange-300'>
-                <a href='/reductions' className='text-l'>{'Try It'}</a>
-            </button>
+            <a href="/products" className='bg-white rounded-md px-[2rem] m-[2rem] py-[1rem] shadow-md shadow-orange-300'>
+                {'Try It'}
+            </a>
         </section >
     )
 }
