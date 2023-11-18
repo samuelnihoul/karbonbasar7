@@ -10,6 +10,7 @@
     "@mui/material": "^5.8.7",
     "@reduxjs/toolkit": "^1.9.5",
     "@tabler/icons-react": "^2.27.0",
+    "autoprefixer": "^10.4.16",
     "firebase": "^9.8.4",
     "hashconnect": "^0.2.4",
     "i18next": "^23.6.0",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
+    "eslint": "^8.54.0",
     "typescript": "^4.7.4"
   },
   "scripts": {
@@ -48,7 +50,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "module": "index.ts",
-  "type": "module"
+  }
 }
