@@ -30,8 +30,8 @@ export default function ResponsiveAppBar() {
         <a href={page.address}>{page.nav}</a>
       </Button>
     ));
-  return (typeof localStorage != "undefined" &&
-      <AppBar position="static" color='transparent'>
+  return (
+              <AppBar position="static" color="transparent">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' }, mr: 1 }} />
@@ -53,7 +53,9 @@ export default function ResponsiveAppBar() {
               <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
                 {renderMenuItems()}
                 <MenuItem>
+                {typeof localStorage != "undefined" &&
                   <Hashpack />
+                  }
                 </MenuItem>
                 <MenuItem>
                   <ConnectionInfo />
@@ -81,7 +83,7 @@ export default function ResponsiveAppBar() {
             </Box>
           </Toolbar>
         </Container>
-      </AppBar>
+        </AppBar>
   );
 }
 
