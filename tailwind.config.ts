@@ -5,7 +5,6 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-
   theme: {
     extend: {},
     fontSize: {
@@ -17,9 +16,9 @@ const config: Config = {
       '2xl': '9.563vh',
       '3xl': '10.953vh',
       '4xl': '20.441vh',
-      '5xl': '40.052vh',
+      '5xl': '40.052vh'
     },
   },
   plugins:[]
 } 
-export default Config
+export default config

@@ -24,9 +24,7 @@ export default function RootLayout({
             <HashConnectClient />
             <ThemeProvider>
               <CssBaseline />
-              <header>
               <Navbar />
-              </header>
               {children}
               <Footer />
             </ThemeProvider>
