@@ -1,4 +1,3 @@
-import { VapeFreeRounded } from '@mui/icons-material'
 import type { Config } from 'tailwindcss'
 const config: Config = {
   content: [
