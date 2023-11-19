@@ -37,7 +37,7 @@
     "build": "bunx i18nexus pull;bunx next build",
     "start": "bunx i18nexus pull;bunx next start",
     "dev": "bunx next dev",
-    "test": "bunx playwright test"
+    "test": "bunx playwright test --headed --project chromium --ui"
   },
   "browserslist": {
     "production": [
