@@ -4,7 +4,7 @@ import React from 'react'
 import {
     Box,
     Stack,
-    Typography,
+    p,
     Button,
     Select,
     Snackbar,
@@ -52,7 +52,7 @@ export default function Pay({ quantity, price, productName }: Props) {
     }, []);
     return (
         <div className='flex-col'>
-            <Typography>What is your email address?*</Typography>
+            <p>What is your email address?*</p>
             <TextField
                 color={"blurple" as any}
                 variant="standard"
@@ -65,7 +65,7 @@ export default function Pay({ quantity, price, productName }: Props) {
                 placeholder="earthling@ecomail.com"
             />
 
-            <Typography>What account do you want to use? *</Typography>
+            <p>What account do you want to use? *</p>
             <Select
                 color={"blurple" as any}
                 variant="standard"
@@ -98,7 +98,7 @@ export default function Pay({ quantity, price, productName }: Props) {
             </Select>
 
 
-            <Typography>How do you want to name your NFT?*</Typography>
+            <p>How do you want to name your NFT?*</p>
             <TextField
                 color={"blurple" as any}
                 variant="standard"

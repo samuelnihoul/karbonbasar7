@@ -22,4 +22,5 @@ body {
 :root {
     --accent: lightgreen;
     --accent-bg: darkgrey;
+    --shadow: gold;
 }

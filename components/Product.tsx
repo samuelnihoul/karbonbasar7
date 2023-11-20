@@ -11,7 +11,7 @@ export default function Product({ product }: { product: ProductInterface }) {
   };
 
   return (
-    <div className=' rounded-lg shadow-lg shadow-orange-400 p-[1rem] '>
+    <div className=' rounded-lg shadow-lg shadow-[--shadow] p-[1rem] '>
       < img className="h-[10rem] m-auto rounded-md" src={product.image} alt={product.name.EN} />
       <div>
         <p className="text-[2rem]">{product.name.EN}</p>
@@ -31,7 +31,7 @@ export default function Product({ product }: { product: ProductInterface }) {
         </div>
 
         <div className="my-4">
-          {product.tags.map(chip => <span key={chip} className='rounded-full border-orange-400 border-2 px-[1rem] py-[0.5rem] m-[0.5rem]'>{chip}</span>)}
+          {product.tags.map(chip => <span key={chip} className='rounded-full border-[--shadow] border-2 px-[1rem] py-[0.5rem] m-[0.5rem]'>{chip}</span>)}
         </div>
 
         <div>
