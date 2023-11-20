@@ -17,7 +17,7 @@ export default function Product({ product }: { product: ProductInterface }) {
         <p className="text-[2rem]">{product.name.EN}</p>
         <span className="p-10 text-m">${product.price}/0.1 CO2e tonne</span>
         <div className="my-4">
-          <span className="mainColor">{'Quantity :'}</span>
+          <span className="mainColor">{'Quantity : '}</span>
           <input
             className="placeholder-black text-black"
             type="number"
@@ -31,7 +31,7 @@ export default function Product({ product }: { product: ProductInterface }) {
         </div>
 
         <div className="my-4">
-          {product.tags.map(chip => <span key={chip} >{chip}</span>)}
+          {product.tags.map(chip => <span key={chip} className='rounded-full border-orange-400 border-2 px-[1rem] py-[0.5rem] m-[0.5rem]'>{chip}</span>)}
         </div>
 
         <div>
