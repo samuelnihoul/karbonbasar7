@@ -9,7 +9,6 @@ export const metadata = {
 import ReduxProvider from '../components/ReduxProvider'
 import { HashConnectClient } from '../components/HashButton'
 import { ThemeProvider } from '../theme'
-import { CssBaseline ,AppBar} from '@mui/material'
 import React from 'react'
 export default function RootLayout({
   children,
@@ -23,7 +22,6 @@ export default function RootLayout({
           <ReduxProvider>
             <HashConnectClient />
             <ThemeProvider>
-              <CssBaseline />
               <Navbar />
               {children}
               <Footer />

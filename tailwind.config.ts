@@ -1,3 +1,4 @@
+import { VapeFreeRounded } from '@mui/icons-material'
 import type { Config } from 'tailwindcss'
 const config: Config = {
   content: [
@@ -6,7 +7,12 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "accent": "var(--accent)",
+        "accent-bg": "var(--accent-bg)"
+      }
+    },
     fontSize: {
       'sm': '0.8vh',
       'base': '1vh',
@@ -19,6 +25,6 @@ const config: Config = {
       '5xl': '40.052vh'
     },
   },
-  plugins:[]
-} 
+  plugins: []
+}
 export default config
