@@ -6,7 +6,6 @@ a {
     color: var(--accent);
 }
 
-
 body {
     background-color: black;
     color: white;
@@ -24,14 +23,5 @@ body {
 
 :root {
     --accent: lightgreen;
-    --accent-bg: lightgreen;
-}
-
-.accent {
-    color: var(--accent);
-}
-
-.bg-accent {
-    background-color: var(--accent);
-    color: black;
+    --accent-bg: darkgrey;
 }
