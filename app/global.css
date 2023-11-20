@@ -2,6 +2,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "https://fonts.google.com/comfortaa";
+
 a {
     color: var(--accent);
 }
@@ -13,13 +15,9 @@ body {
 }
 
 * {
-    font-family: 'cascadia', sans-serif;
+    font-family: 'comfortaa', sans-serif;
 }
 
-@font-face {
-    font-family: "cascadia";
-    src: url("../public/assets/fonts/cascadia.otf")
-}
 
 :root {
     --accent: lightgreen;
