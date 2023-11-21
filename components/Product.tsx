@@ -4,7 +4,7 @@ import PayHBAR from './Pay';
 import ProductInterface from './ProductInterface'
 
 export default function Product({ product }: { product: ProductInterface }) {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0.1);
   const cardRef = useRef(null);
   const handleQuantityChange = (e) => {
     setQuantity(e.target.valueAsNumber > 0 ? e.target.valueAsNumber : quantity);
@@ -15,9 +15,9 @@ export default function Product({ product }: { product: ProductInterface }) {
       < img className="h-[10rem] m-auto rounded-md" src={product.image} alt={product.name.EN} />
       <div>
         <p className="text-[2rem]">{product.name.EN}</p>
-        <span className="p-10 text-m">${product.price}/0.1 CO2e tonne</span>
+        <span className="p-10 text-m">${product.price}/CO2 tonne</span>
         <div className="my-4">
-          <span className="mainColor">{'Quantity : '}</span>
+          <span className="mainColor">{'Quantity: '}</span>
           <input
             className="placeholder-black text-black"
             type="number"

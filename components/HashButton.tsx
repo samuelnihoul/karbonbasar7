@@ -68,7 +68,7 @@ export default function HashConnectConnectButton() {
         }
     }
 
-    return (typeof window != 'undefined' &&
+    return (
         <Box>
             <button
                 className="bg-purple-500 px-[1rem] py-[0.5rem] rounded-md"
