@@ -1,5 +1,5 @@
 import React from 'react'
-import Product from '../../components/ProductInterface'
+import Product from '../../../components/ProductInterface'
 
 export default function Product({ product }: { product: Product }) {
     return (
