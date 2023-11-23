@@ -4,7 +4,6 @@ import React from 'react'
 import {
     Box,
     Stack,
-    p,
     Button,
     Select,
     Snackbar,
@@ -15,7 +14,6 @@ import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { WindowSharp } from "@mui/icons-material";
 import { PayPalButton } from 'react-paypal-button-v2'
 interface Props {
     quantity: number,
@@ -37,19 +35,7 @@ export default function Pay({ quantity, price, productName }: Props) {
     const [name, setName] = useState("")
     const amount = Math.floor(quantity * price * 1000 / 0.063) / 1000
     const [scriptLoaded, setScriptLoaded] = useState(false)
-    useEffect(() => {
-        const addPaypalScript = () => {
-            const script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = `https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL}`;
-            script.async = true;
 
-            script.onload = () => setScriptLoaded(true);
-
-            document.body.appendChild(script);
-        };
-        addPaypalScript();
-    }, []);
     return (
         <div className='flex-col'>
             <p>What is your email address?*</p>

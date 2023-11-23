@@ -1,11 +1,12 @@
 'use client'
 import React, { useState, useRef } from 'react';
-import PayHBAR from './Pay';
+import PayHBAR from './PayNFT';
 import ProductInterface from './ProductInterface'
-
+import PaySticker from './PaySticker'
 export default function Product({ product }: { product: ProductInterface }) {
   const [quantity, setQuantity] = useState(0.1);
   const [showPay, setShowPay] = useState(false)
+  const [isNFT, setIsNFT] = useState(false)
   const cardRef = useRef(null);
   const handleQuantityChange = (e) => {
     setQuantity(e.target.valueAsNumber > 0 ? e.target.valueAsNumber : quantity);
@@ -41,8 +42,17 @@ export default function Product({ product }: { product: ProductInterface }) {
           <span className="mainColor">{'Methodology: '}</span> {product.methodology}
         </div>
       </div>
-      {!showPay ? <button className="text-[--accent]" onClick={() => { setShowPay(true) }}>Checkout</button>
-        : <> <PayHBAR quantity={quantity} price={product.price} productName={product.name.EN} /><button onClick={() => { setShowPay(false) }}>Cancel</button></>}
+      {!showPay ?
+        <>
+          <button className="text-[--accent]" onClick={() => { setShowPay(true); setIsNFT(true) }}>Checkout (NFT)</button>
+          <button className='text-[--accent]' onClick={() => { setShowPay(true); setIsNFT(false) }}>Checkout (Sticker)</button>
+        </>
+        :
+        <>
+          {isNFT ? <PayHBAR quantity={quantity} price={product.price} productName={product.name.EN} /> : <PaySticker></PaySticker>}
+          <button onClick={() => { setShowPay(false) }}>Cancel</button>
+        </>
+      }
     </div >
   );
 };
