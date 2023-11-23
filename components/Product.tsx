@@ -5,6 +5,7 @@ import ProductInterface from './ProductInterface'
 
 export default function Product({ product }: { product: ProductInterface }) {
   const [quantity, setQuantity] = useState(0.1);
+  const [showPay, setShowPay] = useState(false)
   const cardRef = useRef(null);
   const handleQuantityChange = (e) => {
     setQuantity(e.target.valueAsNumber > 0 ? e.target.valueAsNumber : quantity);
@@ -40,9 +41,8 @@ export default function Product({ product }: { product: ProductInterface }) {
           <span className="mainColor">{'Methodology: '}</span> {product.methodology}
         </div>
       </div>
-      <div >
-        <PayHBAR quantity={quantity} price={product.price} productName={product.name.EN} />
-      </div>
+      {!showPay ? <button className="text-[--accent]" onClick={() => { setShowPay(true) }}>Checkout</button>
+        : <> <PayHBAR quantity={quantity} price={product.price} productName={product.name.EN} /><button onClick={() => { setShowPay(false) }}>Cancel</button></>}
     </div >
   );
 };
