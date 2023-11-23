@@ -11,11 +11,11 @@ export default function Product({ product }: { product: ProductInterface }) {
   };
 
   return (
-    <div className=' rounded-lg shadow-lg shadow-[--shadow] p-[1rem] '>
-      < img className="h-[10rem] m-auto rounded-md" src={product.image} alt={product.name.EN} />
+    <div className='rounded-lg shadow-lg shadow-[--shadow] p-[1rem] flex-1 flex flex-col gap-[1rem]'>
+      < img className=" rounded-md" src={product.image} alt={product.name.EN} />
       <div>
         <p className="text-[2rem]">{product.name.EN}</p>
-        <span className="p-10 text-m">${product.price}/CO2 tonne</span>
+        <span className=" text-m">{product.price}$/CO2 tonne</span>
         <div className="my-4">
           <span className="mainColor">{'Quantity: '}</span>
           <input
@@ -27,7 +27,7 @@ export default function Product({ product }: { product: ProductInterface }) {
         </div>
 
         <div>
-          {product.description.FR}
+          {product.description.EN}
         </div>
 
         <div className="my-4">
