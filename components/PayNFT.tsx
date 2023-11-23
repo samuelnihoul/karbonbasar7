@@ -13,8 +13,7 @@ import {
 import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { PayPalButton } from 'react-paypal-button-v2'
+import PaypalButton from './Paypal'
 interface Props {
     quantity: number,
     price: number
@@ -34,8 +33,6 @@ export default function Pay({ quantity, price, productName }: Props) {
     const [snackbarMessage, setSnackbarMessage] = useState("")
     const [name, setName] = useState("")
     const amount = Math.floor(quantity * price * 1000 / 0.063) / 1000
-    const [scriptLoaded, setScriptLoaded] = useState(false)
-
     return (
         <div className='flex-col'>
             <p>What is your email address?*</p>
@@ -97,92 +94,94 @@ export default function Pay({ quantity, price, productName }: Props) {
                 }
                 placeholder="My 1% for the planet"
             />
-            {scriptLoaded && validateEmail(email) && name && fromAccountId && <>
-
-                <Stack maxWidth="400px" spacing={1} pt={8}>
-                    <Button
-                        variant="contained"
-                        color={"blurple" as any}
-                        onClick={
-                            async () => {
-                                const associateTransaction = new TokenAssociateTransaction()
-                                    .setTokenIds(['0.0.3276256']).setAccountId(fromAccountId)
-                                setSnackbarMessage("Approve in your wallet.")
-                                setSnackbarOpen(true)
-                                const signer = await getSigner(fromAccountId) as unknown as Signer
-                                const frozenTransaction =
-                                    await associateTransaction.freezeWithSigner(signer);
-                                await frozenTransaction.executeWithSigner(signer);
-                                setSnackbarMessage("Success!")
-                                setSnackbarOpen(false)
-                                setSnackbarOpen(true)
-                            }
-                        }
-                    >
-                        Click to Associate the NFT
-                    </Button>
-                    <PayPalButton amount={quantity * price} currency={'USD'} onSuccess={() => {
-                        alert('success'); addDoc(collection(db, 'purchases'), {
-                            'email': email,
-                            'accountID': fromAccountId,
-                            'quantity': quantity,
-                            'price': price
-
-                        })
-                    }} />
-
-                    <Button
-                        variant="contained"
-                        color={"blurple" as any}
-                        onClick={
-                            async () => {
-                                const transferTransaction = new TransferTransaction()
-                                    .addHbarTransfer(fromAccountId, new Hbar(-amount))
-                                    .addHbarTransfer('0.0.1082962', new Hbar(amount))
-                                    .setTransactionMemo(email + ',' + name + productName)
-                                setSnackbarMessage("Approve in your wallet.")
-                                setSnackbarOpen(true)
-                                const signer = await getSigner(fromAccountId) as unknown as Signer;
-                                const frozenTransaction =
-                                    await transferTransaction.freezeWithSigner(signer);
-                                await frozenTransaction.executeWithSigner(signer);
-                                setSnackbarMessage("Success! Allow 24h to receive your order and confirmation emails.")
-                                setSnackbarOpen(false)
-                                setSnackbarOpen(true)
-                                addDoc(collection(db, 'purchases'), {
-                                    'email': email,
-                                    'accountID': fromAccountId,
-                                    'quantity': quantity,
-                                    'price': price,
-                                    'name': name
-                                })
-                            }
-                        }
-                    >
-                        HBAR
-                    </Button>
-                    <Snackbar
-                        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-                        open={snackbarOpen}
-                        autoHideDuration={5000}
-                        onClose={() => {
-                            setSnackbarOpen(false);
-                        }
-                        }
-                    >
-                        <Box
-                            sx={
-                                {
-                                    bgcolor: "success.main",
-                                    color: "white",
-                                    p: 2,
-                                    borderRadius: 1,
+            {validateEmail(email) && name && fromAccountId &&
+                <>
+                    <Stack maxWidth="400px" spacing={1} pt={8}>
+                        <Button
+                            variant="contained"
+                            color={"blurple" as any}
+                            onClick={
+                                async () => {
+                                    const associateTransaction = new TokenAssociateTransaction()
+                                        .setTokenIds(['0.0.3276256']).setAccountId(fromAccountId)
+                                    setSnackbarMessage("Approve in your wallet.")
+                                    setSnackbarOpen(true)
+                                    const signer = await getSigner(fromAccountId) as unknown as Signer
+                                    const frozenTransaction =
+                                        await associateTransaction.freezeWithSigner(signer);
+                                    await frozenTransaction.executeWithSigner(signer);
+                                    setSnackbarMessage("Success!")
+                                    setSnackbarOpen(false)
+                                    setSnackbarOpen(true)
                                 }
                             }
                         >
-                            {snackbarMessage}
-                        </Box>
-                    </Snackbar>
-                </Stack></>}</div>
+                            Click to Associate the NFT
+                        </Button>
+                        <PayPalButton amount={quantity * price} currency={'USD'} onSuccess={() => {
+                            alert('success'); addDoc(collection(db, 'purchases'), {
+                                'email': email,
+                                'accountID': fromAccountId,
+                                'quantity': quantity,
+                                'price': price
+
+                            })
+                        }} />
+
+                        <Button
+                            variant="contained"
+                            color={"blurple" as any}
+                            onClick={
+                                async () => {
+                                    const transferTransaction = new TransferTransaction()
+                                        .addHbarTransfer(fromAccountId, new Hbar(-amount))
+                                        .addHbarTransfer('0.0.1082962', new Hbar(amount))
+                                        .setTransactionMemo(email + ',' + name + productName)
+                                    setSnackbarMessage("Approve in your wallet.")
+                                    setSnackbarOpen(true)
+                                    const signer = await getSigner(fromAccountId) as unknown as Signer;
+                                    const frozenTransaction =
+                                        await transferTransaction.freezeWithSigner(signer);
+                                    await frozenTransaction.executeWithSigner(signer);
+                                    setSnackbarMessage("Success! Allow 24h to receive your order and confirmation emails.")
+                                    setSnackbarOpen(false)
+                                    setSnackbarOpen(true)
+                                    addDoc(collection(db, 'purchases'), {
+                                        'email': email,
+                                        'accountID': fromAccountId,
+                                        'quantity': quantity,
+                                        'price': price,
+                                        'name': name
+                                    })
+                                }
+                            }
+                        >
+                            HBAR
+                        </Button>
+                        <Snackbar
+                            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                            open={snackbarOpen}
+                            autoHideDuration={5000}
+                            onClose={() => {
+                                setSnackbarOpen(false);
+                            }
+                            }
+                        >
+                            <Box
+                                sx={
+                                    {
+                                        bgcolor: "success.main",
+                                        color: "white",
+                                        p: 2,
+                                        borderRadius: 1,
+                                    }
+                                }
+                            >
+                                {snackbarMessage}
+                            </Box>
+                        </Snackbar>
+                    </Stack>
+                </>}
+        </div>
     )
 }
