@@ -13,7 +13,7 @@ import {
 import { getSigner } from "../lib/hashconnect";
 import { AppStore } from "../store";
 import { useState, useEffect } from "react";
-import PaypalButton from './Paypal'
+import PayPalButton from './Paypal'
 interface Props {
     quantity: number,
     price: number
@@ -22,6 +22,7 @@ interface Props {
 import db from '../lib/firebase'
 import { addDoc, collection } from 'firebase/firestore'
 import { validateEmail, validateName } from "../lib/validator";
+import { useSelector } from "react-redux";
 
 export default function Pay({ quantity, price, productName }: Props) {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
@@ -48,7 +49,7 @@ export default function Pay({ quantity, price, productName }: Props) {
                 placeholder="earthling@ecomail.com"
             />
 
-            <p>What account do you want to use? *</p>
+            <p>What account do you want to use? You need to login with at least one account using the "Hashpack Connect" button.*</p>
             <Select
                 color={"blurple" as any}
                 variant="standard"
