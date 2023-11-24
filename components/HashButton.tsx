@@ -59,7 +59,7 @@ export default function HashConnectConnectButton() {
 
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-    let connectButtonText = "HASHPACK CONNECT";
+    let connectButtonText = "Hashpack Connect";
     if (isConnected) {
         if (connectedAccountIds.length > 1) {
             connectButtonText = `Disconnect Accounts`;
@@ -68,11 +68,10 @@ export default function HashConnectConnectButton() {
         }
     }
 
-    return (typeof window != 'undefined' &&
+    return (
         <Box>
-            <Button
-                color={"blurple" as any}
-                variant="contained"
+            <button
+                className="bg-purple-500 px-[1rem] py-[0.5rem] rounded-md"
                 onClick={async () => {
                     if (isConnected) {
                         await hcInitPromise;
@@ -88,7 +87,7 @@ export default function HashConnectConnectButton() {
                 }}
             >
                 {connectButtonText}
-            </Button>
+            </button>
 
             <Dialog
                 open={open}

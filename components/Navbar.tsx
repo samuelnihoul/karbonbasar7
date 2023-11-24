@@ -52,9 +52,7 @@ export default function ResponsiveAppBar() {
             </IconButton>
             <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
               {renderMenuItems()}
-              {typeof localStorage != "undefined" &&
-                <Hashpack />
-              }
+              <Hashpack />
               <MenuItem>
                 <ConnectionInfo />
               </MenuItem>

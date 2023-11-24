@@ -14,16 +14,16 @@ export const ConnectionInfo = () => {
 
     return (
         <Stack spacing={1}>
-            <Typography variant="h6">Connected Accounts:</Typography>
+            <span className="text-md">Connected Accounts:</span>
             {
                 connectedAccountIds.map((accountId) => (
                     <Box key={accountId}>
-                        <Typography>Account ID: {accountId}</Typography>
+                        <span>Account ID: {accountId}</span>
                     </Box>
                 )
                 )
             }
-            {!isConnected && <Typography>NONE</Typography>}
+            {!isConnected && <span>None</span>}
         </Stack>
     )
 };
