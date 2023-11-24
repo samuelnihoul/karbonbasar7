@@ -24,3 +24,10 @@ body {
     --accent-bg: darkgrey;
     --shadow: lightgreen;
 }
+
+button {
+    border: 0.1rem solid;
+    border-color: white;
+    border-radius: 10rem;
+    padding: 1rem 0.5rem;
+}

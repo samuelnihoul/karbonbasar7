@@ -9,7 +9,7 @@ export default function Home() {
                 KARBON BASAR
             </h1>
             <p className="text-center text-xl">
-                The one stop for carbon finance products
+                The one stop market for carbon finance products
                 <br />
                 (featuring cute NFTs)
                 <br />

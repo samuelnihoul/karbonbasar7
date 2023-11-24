@@ -8,11 +8,14 @@ export default async function (data: FormData) {
     const city = data.get('city')
     const country = data.get('country')
     const email = data.get('email')
-    addDoc(collection(db, 'purchases'), {
-        'address': address,
-        'zip': zip,
-        'city': city,
-        'country': country,
-        'email': email
-    })
+    const doc = {
+        address,
+        zip,
+        city,
+        country,
+        email
+    }
+    try { schema.parse(doc) }
+    catch { alert('Please verify your form data.') }
+    addDoc(collection(db, 'purchases'), doc)
 }

@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
 export default z.object({
-    street: z.string(),
+    address: z.string(),
     city: z.string(),
-    state: z.string(),
-    zip: z.string().regex(/^\d{5}(-\d{4})?$/, 'Invalid ZIP code'),
-    country: z.string()
+    zip: z.string().min(1),
+    country: z.string(),
+    email: z.string().email()
 });
