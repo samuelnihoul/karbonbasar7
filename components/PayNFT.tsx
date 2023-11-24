@@ -49,7 +49,7 @@ export default function Pay({ quantity, price, productName }: Props) {
                 placeholder="earthling@ecomail.com"
             />
 
-            <p>What account do you want to use? You need to login with at least one account using the "Hashpack Connect" button.*</p>
+            <p>What account do you want to use? You need to login with at least one account using the &ldquo;Hashpack Connect&rdquo;button.*</p>
             <Select
                 color={"blurple" as any}
                 variant="standard"

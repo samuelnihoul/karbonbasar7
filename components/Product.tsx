@@ -46,7 +46,7 @@ export default function Product({ product }: { product: ProductInterface }) {
         </>
         :
         <>
-          {isNFT ? <PayHBAR quantity={quantity} price={product.price} productName={product.name.EN} /> : <PaySticker></PaySticker>}
+          {isNFT ? <PayHBAR quantity={quantity} price={product.price} productName={product.name.EN} /> : <PaySticker amount={quantity * product.price} currency='USD' onSuccess={() => alert('Payment successful')}></PaySticker>}
           <button onClick={() => { setShowPay(false) }}>Cancel</button>
         </>
       }

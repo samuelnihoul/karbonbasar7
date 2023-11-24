@@ -1,8 +1,9 @@
 import React from 'react'
-import Product from '../../../components/ProductInterface'
+import Product from '@/components/ProductInterface'
 
-export default function Product({ product }: { product: Product }) {
+function ProductDetail() {
     return (
-        <div>{product.description.EN}</div>
+        <div>{'hello'}</div>
     )
 }
+export default ProductDetail
