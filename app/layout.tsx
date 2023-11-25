@@ -1,6 +1,6 @@
 import { Suspense, StrictMode } from 'react'
 import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import Navbar from '@/components/Navbar'
 import './global.css'
 export const metadata = {
   title: 'Karbon Basar',
@@ -18,16 +18,17 @@ export default function RootLayout({
   return (
     <html >
       <body>
-        <Suspense fallback={<p>Loading...</p>}>
-          <ReduxProvider>
-            <HashConnectClient />
-            <ThemeProvider>
-              <Navbar />
-              {children}
-              <Footer />
-            </ThemeProvider>
-          </ReduxProvider>
-        </Suspense>
+        <StrictMode>
+          <Suspense fallback={<p className='text-center m-auto h-[100vh]'>Loading...</p>}>
+            <ReduxProvider>
+              <HashConnectClient />
+              <ThemeProvider>
+                <Navbar />
+                {children}
+                <Footer />
+              </ThemeProvider>
+            </ReduxProvider>
+          </Suspense></StrictMode>
       </body>
     </html >
   )
