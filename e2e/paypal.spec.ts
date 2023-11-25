@@ -1,1 +1,3 @@
-import { test, expect }
+import { test, expect } from "@playwright/test"
+
+test('payment works.', () => { })

@@ -12,10 +12,10 @@ export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
+  }
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
+  }
   const renderMenuItems = () =>
     routes.map((page) => (
       <MenuItem key={page.address} onClick={handleCloseNavMenu}>
@@ -31,47 +31,12 @@ export default function ResponsiveAppBar() {
       </Button>
     ));
   return (
-    <AppBar position="static" color="transparent">
+    <AppBar position="sticky" >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' }, mr: 1 }} />
-          <Typography variant="h6" component="a" href="/" sx={{
-            mr: 2,
-            display: { xs: 'none', md: 'flex' },
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-          }}>
-            KB
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' } }}>
-            <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
-              <MenuIcon />
-            </IconButton>
-            <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
-              {renderMenuItems()}
-              <Hashpack />
-              <MenuItem>
-                <ConnectionInfo />
-              </MenuItem>
-            </Menu>
-          </Box>
-          <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' }, mr: 1 }} />
-          <Typography variant="h5" component="a" href="" sx={{
-            mr: 2,
-            display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' },
-            flexGrow: 1,
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-          }}>
-            KB
-          </Typography>
-          <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' } }}>
+
+
+          <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: 'flex' }}><a href="/" className='color-white'><Avatar src='/assets/images/pure2.png' /></a>
             {renderDesktopButtons()}
             <Box sx={{ flexGrow: 2 }} />
             <Hashpack />
@@ -79,7 +44,7 @@ export default function ResponsiveAppBar() {
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </AppBar >
   );
 }
 

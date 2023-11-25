@@ -1,7 +1,6 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
 @import "https://fonts.google.com/comfortaa";
 
 a {
@@ -28,6 +27,6 @@ body {
 button {
     border: 0.1rem solid;
     border-color: white;
-    border-radius: 10rem;
+    border-radius: 1rem;
     padding: 1rem 0.5rem;
 }
