@@ -19,7 +19,7 @@ export default function RootLayout({
     <html >
       <body>
         <StrictMode>
-          <Suspense fallback={<p className='content-center text-center h-full'>Loading...</p>}>
+          <Suspense fallback={<p className='justify-center text-center h-full flex'>Loading...</p>}>
             <ReduxProvider>
               <HashConnectClient />
               <ThemeProvider>

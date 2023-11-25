@@ -6,17 +6,16 @@ import {
 import Hashpack from './HashButton';
 import { ConnectionInfo } from './ConnectionInfo';
 import routes from '../data/navbar-data'
+import { GoogleAuthProvider } from 'firebase/auth'
 export default function ResponsiveAppBar() {
   const renderDesktopButtons = () =>
     routes.map((page) => (
-      <a href={page.address}>{page.nav}</a>
+      <a href={page.address} key={page.nav}>{page.nav}</a>
     ));
   return (
     <AppBar position="sticky" >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
-
           <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: 'flex' }}><a href="/" className='color-white'><Avatar src='/assets/images/pure2.png' /></a>
             {renderDesktopButtons()}
             <Box sx={{ flexGrow: 2 }} />
