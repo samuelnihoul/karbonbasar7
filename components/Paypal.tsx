@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { PayPalButton } from 'react-paypal-button-v2'
 import Script from 'next/script'
 export default function Paypal({ amount, currency, onSuccess }: { amount: number, currency: string, onSuccess: Function }) {
