@@ -34,18 +34,7 @@ export default function ResponsiveAppBar() {
         <AppBar position="static" color="transparent">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' }, mr: 1 }} />
-                    <Typography variant="h6" component="a" href="/" sx={{
-                        mr: 2,
-                        display: { xs: 'none', md: 'flex' },
-                        fontFamily: 'monospace',
-                        fontWeight: 700,
-                        letterSpacing: '.3rem',
-                        color: 'inherit',
-                        textDecoration: 'none',
-                    }}>
-                        KB
-                    </Typography>
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' } }}>
                         <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
                             <MenuIcon />
@@ -71,12 +60,7 @@ export default function ResponsiveAppBar() {
                     }}>
                         KB
                     </Typography>
-                    <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' } }}>
-                        {renderDesktopButtons()}
-                        <Box sx={{ flexGrow: 2 }} />
-                        <Hashpack />
-                        <ConnectionInfo />
-                    </Box>
+
                 </Toolbar>
             </Container>
         </AppBar>

@@ -18,7 +18,7 @@ export default async function Products() {
   const products = await fetchProducts()
   return (
     <section>
-      <h2 className='m-[auto] text-2xl mx-[2rem] w-full'>{'Our Projects'}</h2>
+      <h2 className='text-center text-2xl mx-[2rem] w-full'>{'Our Projects'}</h2>
       <div className='flex flex-row gap-[2rem] m-auto flex-wrap align-middle'>
         {products.map((product) => (
           <Product product={product.data} key={product.id} />
