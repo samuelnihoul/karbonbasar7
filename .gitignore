@@ -5,4 +5,7 @@ build
 .next
 .pnpm-store
 .vscode
-
+#playwright
+pageCheck.spec.ts-snapshots
+playwright-report
+test-results
