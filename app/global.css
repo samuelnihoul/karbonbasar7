@@ -1,0 +1,33 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "https://fonts.google.com/comfortaa";
+
+a {
+    color: var(--accent);
+}
+
+body {
+    background-color: black;
+    color: white;
+
+}
+
+* {
+    font-family: 'comfortaa', sans-serif;
+}
+
+
+:root {
+    --accent: lightgreen;
+    --accent-bg: darkgrey;
+    --shadow: lightgreen;
+}
+
+button {
+    border: 0.1rem solid;
+    border-color: white;
+    border-radius: 10rem;
+    padding: 1rem 0.5rem;
+}
