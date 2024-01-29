@@ -4,7 +4,7 @@ import PayHBAR from './PayNFT';
 import ProductInterface from './ProductInterface'
 import PaySticker from './PaySticker'
 export default function Product({ product }: { product: ProductInterface }) {
-  const [quantity, setQuantity] = useState(0.1);
+  const [quantity, setQuantity] = useState(1);
   const [showPay, setShowPay] = useState(false)
   const [isNFT, setIsNFT] = useState(false)
   const cardRef = useRef(null);
