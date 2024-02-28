@@ -1,7 +1,7 @@
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import axios from "axios"
 import React from 'react'
-export default function Paypal(price: number, email: string) {
+export default function Paypal({ price, email }: { price: number, email: string }) {
     return (
         <PayPalScriptProvider
             options={{

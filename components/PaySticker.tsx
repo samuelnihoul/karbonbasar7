@@ -9,6 +9,7 @@ interface Props {
 }
 export default function PaySticker({ amount, currency, onSuccess }: Props) {
     const [pay, setPay] = useState(false)
+    const [email, setEmail] = useState("")
     return (
         <>
             <form action={action} className='flex flex-col gap-[0.5rem]'>
@@ -21,7 +22,7 @@ export default function PaySticker({ amount, currency, onSuccess }: Props) {
                 <label htmlFor="country">Country</label>
                 <input type="text" id="country" name='country' />
                 <label htmlFor="email">Email</label>
-                <input type="text" id="email" name='email' />
+                <input type="text" id="email" name='email' onChange={(e) => setEmail(e.target.value)} />
                 <button onClick={() => setPay(true)}>Submit</button>
             </form>
             {pay && <Paypal price={amount} email={email} />}
