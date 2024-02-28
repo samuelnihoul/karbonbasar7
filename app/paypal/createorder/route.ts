@@ -33,7 +33,7 @@ export default async function Handler(req, res) {
             return res.status(500).json({ success: false, message: "Some Error Occured at backend" })
         }
 
-
+        const order = response.order
         // Your Custom Code for doing something with order
         // Usually Store an order in the database like MongoDB
 

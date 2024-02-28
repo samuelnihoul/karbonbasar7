@@ -1,4 +1,4 @@
-import client from 'backend/paypal'
+import client from '@/app/paypal/utility'
 import paypal from '@paypal/checkout-server-sdk'
 
 
@@ -20,7 +20,6 @@ export default async function Handler(req, res) {
     if (!response) {
         return res.status(500).json({ success: false, message: "Some Error Occured at backend" })
     }
-
-
-    res.status(200).json({ success: true, data: { wallet } })
+    const payer = response.payer
+    res.status(200).json({ success: true, data: { payer } })
 }

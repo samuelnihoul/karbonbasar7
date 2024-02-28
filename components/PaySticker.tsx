@@ -24,7 +24,7 @@ export default function PaySticker({ amount, currency, onSuccess }: Props) {
                 <input type="text" id="email" name='email' />
                 <button onClick={() => setPay(true)}>Submit</button>
             </form>
-            {pay && <Paypal amount={amount} currency={currency} onSuccess={onSuccess} />}
+            {pay && <Paypal price={amount} email={email} />}
         </>
     )
 }
