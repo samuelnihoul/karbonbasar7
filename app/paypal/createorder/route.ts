@@ -1,9 +1,10 @@
 import client from '@/app/paypal/utility'
 import paypal from '@paypal/checkout-server-sdk'
 
-export async function POST(req, res) {
-    if (!req.body.order_price || !req.body.user_id)
-        return res.status(400).json({ success: false, message: "Please Provide order_price And User ID" })
+export async function POST(req: Request) {
+    const body = await req.json()
+    if (!body.order_price || !body.user_id)
+        return new Response(JSON.stringify({ success: false, message: "Please provide order_price and usuer ID" }), { status: 400 })
 
     try {
         const PaypalClient = client()
@@ -15,7 +16,7 @@ export async function POST(req, res) {
                 {
                     amount: {
                         currency_code: 'USD',
-                        value: req.body.order_price + "",
+                        value: body.order_price + "",
                     },
                 },
             ],
@@ -23,15 +24,15 @@ export async function POST(req, res) {
         const response = await PaypalClient.execute(request)
         if (response.statusCode !== 201) {
             console.log("RES: ", response)
-            return res.status(500).json({ success: false, message: "Some Error Occured at backend" })
+            return new Response(JSON.stringify({ success: false, message: "some error occured at the backend" }), { status: 500 })
         }
 
         const order = response.order
-        res.status(200).json({ success: true, data: { order } })
+        return new Response(JSON.stringify({ success: true, data: { order } }), { status: 200 })
     }
     catch (err) {
         console.log("Err at Create Order: ", err)
-        return res.status(500).json({ success: false, message: "Could Not Found the user" })
+        return new Response(JSON.stringify({ success: false, message: "could not find the user" }))
     }
 
 }
