@@ -4,7 +4,6 @@ import React, { Suspense } from 'react'
 export default function Paypal({ price, email }: { price: number, email: string }) {
     return (
         <>
-            <h3>Pay with PayPal</h3>
             <Suspense fallback={<p>loading...</p>}>
                 <PayPalScriptProvider
                     options={{

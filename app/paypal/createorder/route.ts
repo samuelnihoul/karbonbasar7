@@ -1,11 +1,7 @@
 import client from '@/app/paypal/utility'
 import paypal from '@paypal/checkout-server-sdk'
 
-export default async function Handler(req, res) {
-
-    if (req.method != "POST")
-        return res.status(404).json({ success: false, message: "Not Found" })
-
+export async function POST(req, res) {
     if (!req.body.order_price || !req.body.user_id)
         return res.status(400).json({ success: false, message: "Please Provide order_price And User ID" })
 
