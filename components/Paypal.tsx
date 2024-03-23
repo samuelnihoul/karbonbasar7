@@ -2,12 +2,13 @@ import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import axios from "axios"
 import React, { Suspense } from 'react'
 export default function Paypal({ price, email }: { price: number, email: string }) {
+    const id = process.env.NODE_ENV == "development" ? process.env.NEXT_PUBLIC_PAYPAL_SANDBOX : process.env.NEXT_PUBLIC_PAYPAL_ID
     return (
         <>
-            <Suspense fallback={<p>loading...</p>}>
+            <Suspense fallback={<p>Loading...</p>}>
                 <PayPalScriptProvider
                     options={{
-                        clientId: process.env.NEXT_PUBLIC_PAYPAL_ID,
+                        clientId: id,
                         currency: 'USD',
                         intent: 'capture'
                     }}
@@ -30,7 +31,7 @@ export default function Paypal({ price, email }: { price: number, email: string 
                         }}
                     />
                 </PayPalScriptProvider>
-            </Suspense>
+            </Suspense >
         </>
     )
 }
