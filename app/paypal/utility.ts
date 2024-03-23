@@ -3,6 +3,7 @@ import paypal from '@paypal/checkout-server-sdk'
 const configureEnvironment = function () {
     const clientId = process.env.PAYPAL_ID
     const clientSecret = process.env.PAYPAL_SECRET
+
     console.log("paypla clientId is" + clientId)
     console.log("paypal clientSecret is" + clientSecret)
     return process.env.NODE_ENV === 'production'

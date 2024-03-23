@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html >
-      <body>
+      <body suppressHydrationWarning={true}>
         <Suspense fallback={<p>Loading...</p>}>
           <ReduxProvider>
             <HashConnectClient />
