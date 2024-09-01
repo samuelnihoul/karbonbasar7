@@ -37,10 +37,10 @@
         "zod": "latest"
     },
     "scripts": {
-        "build": "bunx i18nexus pull;bunx next build",
-        "start": "bunx i18nexus pull;bunx next start",
-        "dev": "bunx next dev",
-        "test": "bunx playwright test --headed --project chromium --ui"
+        "build": "pnpm next build",
+        "start": "pnpx i18nexus pull;pnpm next start",
+        "dev": "pnpm next dev",
+        "test": "pnpm playwright test --headed --project chromium --ui"
     },
     "browserslist": {
         "production": [
@@ -53,8 +53,5 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "resolutions": {
-        "crypto-js": "3.3.0"
     }
 }
