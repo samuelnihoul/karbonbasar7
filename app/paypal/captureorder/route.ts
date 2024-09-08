@@ -3,23 +3,20 @@ import paypal from '@paypal/checkout-server-sdk'
 
 
 
-export default async function Handler(req, res) {
-
-    if (req.method != "POST")
-        return res.status(404).json({ success: false, message: "Not Found" })
-
-    if (!req.body.orderID)
-        return res.status(400).json({ success: false, message: "Please Provide Order ID" })
-
+export async function POST(req: Request) {
+    const body = await req.json()
+    if (!body.orderID) {
+        return new Response('Please provide order ID', { status: 400 })
+    }
     //Capture order to complete payment
-    const { orderID } = req.body
+    const orderID = body.orderID
     const PaypalClient = client()
     const request = new paypal.orders.OrdersCaptureRequest(orderID)
     request.requestBody({})
     const response = await PaypalClient.execute(request)
     if (!response) {
-        return res.status(500).json({ success: false, message: "Some Error Occured at backend" })
+        return new Response(JSON.stringify({ success: false, message: "Some Error Occured at backend" }), { status: 500 })
     }
     const payer = response.payer
-    res.status(200).json({ success: true, data: { payer } })
+    return new Response(JSON.stringify({ success: true, data: { payer } }), { status: 200 })
 }
