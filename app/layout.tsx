@@ -6,8 +6,6 @@ export const metadata = {
   title: 'Karbon Basar',
   description: 'Emission Reductions with Rewards',
 }
-import ReduxProvider from '../components/ReduxProvider'
-import { HashConnectClient } from '../components/HashButton'
 import { ThemeProvider } from '../theme'
 import React from 'react'
 export default function RootLayout({
@@ -19,14 +17,11 @@ export default function RootLayout({
     <html >
       <body suppressHydrationWarning={true}>
         <Suspense fallback={<p>Loading...</p>}>
-          <ReduxProvider>
-            <HashConnectClient />
-            <ThemeProvider>
-              <Navbar />
-              {children}
-              <Footer />
-            </ThemeProvider>
-          </ReduxProvider>
+          <ThemeProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </ThemeProvider>
         </Suspense>
       </body>
     </html >

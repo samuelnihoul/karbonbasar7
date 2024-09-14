@@ -5,8 +5,6 @@ import {
   Container, Button, Avatar, MenuItem
 } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
-import Hashpack from './HashButton';
-import { ConnectionInfo } from './ConnectionInfo';
 import routes from '../data/navbar-data'
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -52,10 +50,7 @@ export default function ResponsiveAppBar() {
             </IconButton>
             <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
               {renderMenuItems()}
-              <Hashpack />
-              <MenuItem>
-                <ConnectionInfo />
-              </MenuItem>
+
             </Menu>
           </Box>
           <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'flex', md: 'none', xl: 'none', lg: 'none', sm: 'none' }, mr: 1 }} />
@@ -74,8 +69,6 @@ export default function ResponsiveAppBar() {
           <Box sx={{ alignItems: 'center', gap: 3, flexGrow: 1, display: { xs: 'none', xl: 'flex', sm: 'flex', lg: "flex", md: 'flex' } }}>
             {renderDesktopButtons()}
             <Box sx={{ flexGrow: 2 }} />
-            <Hashpack />
-            <ConnectionInfo />
           </Box>
         </Toolbar>
       </Container>
