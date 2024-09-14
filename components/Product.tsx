@@ -1,8 +1,7 @@
 'use client'
 import React, { useState, useRef } from 'react';
-import PayHBAR from './PayNFT';
 import ProductInterface from './ProductInterface'
-import PaySticker from './PaySticker'
+import Pay from './PaySticker'
 export default function Product({ product }: { product: ProductInterface }) {
   const [quantity, setQuantity] = useState(1);
   const [showPay, setShowPay] = useState(false)
@@ -46,7 +45,7 @@ export default function Product({ product }: { product: ProductInterface }) {
         </>
         :
         <>
-          {isNFT ? <PayHBAR quantity={quantity} price={product.price} productName={product.name.EN} /> : <PaySticker amount={quantity * product.price} currency='USD' onSuccess={() => alert('Payment successful')}></PaySticker>}
+          <Pay amount={quantity * product.price} currency='USD' onSuccess={() => alert('Payment successful')}></Pay>
           <button onClick={() => { setShowPay(false) }}>Cancel</button>
         </>
       }
