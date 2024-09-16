@@ -40,8 +40,7 @@ export default function Product({ product }: { product: ProductInterface }) {
       </div>
       {!showPay ?
         <>
-          <button className="text-[--accent]" onClick={() => { setShowPay(true); setIsNFT(true) }}>Checkout (NFT)</button>
-          <button className='text-[--accent]' onClick={() => { setShowPay(true); setIsNFT(false) }}>Checkout (Sticker)</button>
+          <button className='text-[--accent]' onClick={() => { setShowPay(true); setIsNFT(false) }}>Checkout</button>
         </>
         :
         <>
