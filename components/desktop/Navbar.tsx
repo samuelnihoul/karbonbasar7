@@ -4,7 +4,7 @@ import { AppBar, Container, Toolbar, Avatar, Typography, Button } from '@mui/mat
 const DesktopNavbar = ({ routes, handleCloseNavMenu }) => {
     const renderDesktopButtons = () =>
         routes.map((page) => (
-            <Button key={page.address} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+            <Button key={page.address} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'flex', mr: 2 }}>
                 <a href={page.address}>{page.nav}</a>
             </Button>
         ));
@@ -13,7 +13,7 @@ const DesktopNavbar = ({ routes, handleCloseNavMenu }) => {
         <AppBar position="static" color="transparent">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <Avatar src='/assets/images/pure2.png' sx={{ display: 'flex', mr: 1 }} />
                     <Typography variant="h6" component="a" href="/" sx={{
                         mr: 2,
                         display: { xs: 'none', md: 'flex' },
@@ -23,7 +23,7 @@ const DesktopNavbar = ({ routes, handleCloseNavMenu }) => {
                         color: 'inherit',
                         textDecoration: 'none',
                     }}>
-                        Your Brand
+                        Karbon Basar
                     </Typography>
                     {renderDesktopButtons()}
                 </Toolbar>
