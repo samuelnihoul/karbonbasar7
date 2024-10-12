@@ -17,6 +17,7 @@ const MobileNavbar = ({ routes, handleCloseNavMenu }) => {
                 <Toolbar disableGutters>
                     <Avatar src='/assets/images/pure2.png' sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     {renderMenuItems()}
+                    <span style={{ backgroundColor: 'gold', padding: '5px', borderRadius: 10, fontWeight: 'bold', fontSize: '1rem' }}>Payment System Under Maintenance</span>
                 </Toolbar>
             </Container>
         </AppBar>
