@@ -26,6 +26,8 @@ const DesktopNavbar = ({ routes, handleCloseNavMenu }) => {
                         Karbon Basar
                     </Typography>
                     {renderDesktopButtons()}
+                    {/* warning that the payment system is down */}
+                    <span style={{ backgroundColor: 'gold', padding: '5px', borderRadius: 10, fontWeight: 'bold', fontSize: '1rem' }}>Payment System Under Maintenance</span>
                 </Toolbar>
             </Container>
         </AppBar>
